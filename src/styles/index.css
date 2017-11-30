@@ -1,0 +1,203 @@
+html.homepage {
+  overflow: hidden; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px; }
+
+h1, h2, h3, h4, a, div {
+  font-size: 16px; }
+
+h1 {
+  font-size: 0px; }
+
+* {
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+div.logo {
+  position: absolute;
+  top: 0;
+  width: 30%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  padding: 0 8%; }
+  div.logo div {
+    align-self: flex-end; }
+    div.logo div a {
+      margin: 0 13px;
+      padding: 5px 2px;
+      font-size: 82%;
+      color: #e7dfdd;
+      border-bottom: 1px solid #0e0b16; }
+
+div.nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  padding: 0 8%; }
+  div.nav div {
+    align-self: flex-end; }
+    div.nav div a {
+      margin: 0 13px;
+      padding: 5px 2px;
+      font-size: 82%;
+      color: #e7dfdd;
+      border-bottom: 1px solid #0e0b16; }
+      div.nav div a:hover {
+        border-bottom: 1px solid #e7dfdd; }
+
+div.footer {
+  height: 70vh;
+  background: #4717F6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  color: #0e0b16; }
+  div.footer div.column {
+    border-top: 1px solid #e7dfdd;
+    margin: 90px 2%;
+    padding: 10px 15px 0 0; }
+    div.footer div.column div.column-title {
+      text-transform: uppercase;
+      margin: 12px 0px;
+      margin-bottom: 18px;
+      font-weight: 600;
+      font-size: 95%; }
+    div.footer div.column div.column-link {
+      margin: 8px 0px; }
+      div.footer div.column div.column-link a {
+        color: #e7dfdd;
+        border-bottom: 2px solid #a239ca;
+        padding: 2px 0px;
+        font-size: 95%; }
+    div.footer div.column div.column-text {
+      padding: 2px 0px;
+      color: #e7dfdd;
+      margin: 8px 0px;
+      font-size: 95%; }
+    div.footer div.column div.lineSpacer {
+      line-height: 10px;
+      height: 10px; }
+
+h2 {
+  font-weight: 600;
+  position: absolute;
+  left: calc(8%);
+  transition: 0.4s ease; }
+  h2 div {
+    font-size: 160%; }
+  h2 span {
+    color: #4717F6; }
+  h2 span.colorful {
+    background: -webkit-linear-gradient(left, #35d6d1 12%, #ecff28 88%) no-repeat;
+    -webkit-background-clip: text;
+    color: #b4f25f;
+    -webkit-text-fill-color: transparent; }
+  h2.title-appear {
+    opacity: 0.01;
+    transform: translate(0%, -200%); }
+  h2.story-enter {
+    opacity: 0.01;
+    transform: translate(0%, -200%); }
+  h2.story-appear {
+    opacity: 0.01;
+    transform: translate(0%, -200%); }
+
+div.homepage {
+  width: 100vw;
+  height: 100vh;
+  background: #0e0b16;
+  color: #e7dfdd; }
+  div.homepage h2 {
+    top: 45%; }
+
+div.contact {
+  width: 100vw;
+  height: 65vh;
+  background: #0e0b16;
+  color: #e7dfdd; }
+  div.contact h2 {
+    top: 32%; }
+
+div.about {
+  width: 100vw;
+  height: 65vh;
+  background: #0e0b16;
+  color: #e7dfdd; }
+  div.about h2 {
+    top: 32%; }
+
+div.thinking {
+  width: 100vw;
+  height: 65vh;
+  background: #0e0b16;
+  color: #e7dfdd; }
+  div.thinking h2 {
+    top: 32%; }
+
+div.scroll-down a {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  padding-top: 60px; }
+  div.scroll-down a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 25px;
+    height: 45px;
+    margin-left: -15px;
+    border: 1px solid #e7dfdd;
+    border-radius: 50px;
+    box-sizing: border-box; }
+  div.scroll-down a span::before {
+    position: absolute;
+    top: 9px;
+    left: 50%;
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: #e7dfdd;
+    border-radius: 100%;
+    -webkit-animation: sdb10 2s infinite;
+    animation: sdb10 2s infinite;
+    box-sizing: border-box; }
+
+@-webkit-keyframes sdb10 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    opacity: 0; }
+  40% {
+    opacity: 1; }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
+
+@keyframes sdb10 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0; }
+  40% {
+    opacity: 1; }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0; }
+  100% {
+    opacity: 0; } }
