@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
 
 import Nav from '../molecules/Nav'
-import {PageTitle} from '../molecules/PageTitle'
 import Footer from '../molecules/Footer'
+import PageTitle from '../molecules/PageTitle'
 
 
 export default class Contact extends Component {
 
   render () {
     return [
-      <div key='heading' className='contact'>
+      <div key='heading' className='other'>
         <Nav/>
-        <PageTitle><div> Get in touch... </div></PageTitle>
+        <PageTitle heading='Get in touch' subheading="Don't be a stranger"/>
       </div>,
       <div key='content' className='content'>
 
