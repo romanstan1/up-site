@@ -1,3 +1,5 @@
+import * as THREE from 'three'
+
 /**
  * @author qiao / https://github.com/qiao
  * @author mrdoob / http://mrdoob.com
@@ -6,6 +8,10 @@
  * @author erich666 / http://erichaines.com
  */
 
+var FOUR = {}
+
+
+
 // This set of controls performs orbiting, dollying (zooming), and panning.
 // Unlike TrackballControls, it maintains the "up" direction object.up (+Y by default).
 //
@@ -13,7 +19,7 @@
 //    Zoom - middle mouse, or mousewheel / touch: two finger spread or squish
 //    Pan - right mouse, or arrow keys / touch: three finger swipe
 
-THREE.OrbitControls = function ( object, domElement ) {
+FOUR.OrbitControls = function ( object, domElement ) {
 
 	this.object = object;
 
@@ -422,7 +428,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	function handleMouseDownDolly( event ) {
 
-		//console.log( 'handleMouseDownDolly' );
+		console.log( 'handleMouseDownDolly' );
 
 		dollyStart.set( event.clientX, event.clientY );
 
@@ -430,7 +436,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	function handleMouseDownPan( event ) {
 
-		//console.log( 'handleMouseDownPan' );
+		console.log( 'handleMouseDownPan' );
 
 		panStart.set( event.clientX, event.clientY );
 
@@ -438,7 +444,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	function handleMouseMoveRotate( event ) {
 
-		//console.log( 'handleMouseMoveRotate' );
+		console.log( 'handleMouseMoveRotate' );
 
 		rotateEnd.set( event.clientX, event.clientY );
 		rotateDelta.subVectors( rotateEnd, rotateStart );
@@ -913,10 +919,10 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 };
 
-THREE.OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
-THREE.OrbitControls.prototype.constructor = THREE.OrbitControls;
+FOUR.OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
+FOUR.OrbitControls.prototype.constructor = FOUR.OrbitControls;
 
-Object.defineProperties( THREE.OrbitControls.prototype, {
+Object.defineProperties( FOUR.OrbitControls.prototype, {
 
 	center: {
 
@@ -1038,5 +1044,7 @@ Object.defineProperties( THREE.OrbitControls.prototype, {
 		}
 
 	}
-
 } );
+
+// FOUR.OrbitControls.prototype = Object.create( THREE.EventDispatcher.prototype );
+export default FOUR
