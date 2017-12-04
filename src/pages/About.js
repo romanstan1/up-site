@@ -4,9 +4,7 @@ import {connect} from 'react-redux'
 import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'
 import PageTitle from '../molecules/PageTitle'
-
-import {init} from '../background/background.js'
-
+import {init,stopAnimation} from '../background/background.js'
 
 class Background extends Component {
   shouldComponentUpdate(nextProps) {
@@ -22,20 +20,21 @@ class About extends Component {
   componentDidMount() {
     init()
   }
+  componentWillUnmount() {
+    stopAnimation()
+  }
 
   render () {
     return [
       <div key='heading' className='about'>
         <Nav/>
+        <Background />,
         <PageTitle heading='Digital Growth Agency' subheading='We deliver digital solutions that help our clients increase their business agility'/>
       </div>,
-      <Background key='background'/>,
       <Footer key='footer'/>
     ]
   }
 }
-
-
 
 export default connect(state => ({
   data: state.data

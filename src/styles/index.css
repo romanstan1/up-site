@@ -66,7 +66,6 @@ div.titles {
     font-style: italic; }
 
 canvas.scene {
-  background: grey;
   width: 100%;
   height: 100vh; }
 
@@ -88,5 +87,94 @@ div.other {
 
 footer {
   height: 60vh;
-  background: ghostwhite;
-  margin-top: 200px; }
+  background: ghostwhite; }
+
+div.content {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  margin: 20px 8%; }
+  div.content div.blog-post.small {
+    position: relative;
+    background: ghostwhite;
+    margin: 15px;
+    box-sizing: border-box;
+    padding: 20px;
+    flex-grow: 1;
+    width: 20%; }
+    div.content div.blog-post.small h2 {
+      font-size: 110%;
+      text-transform: uppercase; }
+    div.content div.blog-post.small h3 {
+      font-size: 100%; }
+      div.content div.blog-post.small h3.red {
+        color: tomato; }
+      div.content div.blog-post.small h3.blue {
+        color: navy; }
+      div.content div.blog-post.small h3.orange {
+        color: orange; }
+    div.content div.blog-post.small h4 {
+      font-size: 95%;
+      font-weight: 400; }
+    div.content div.blog-post.small.big {
+      border: 2px solid red;
+      display: flex; }
+  div.content div.blog-post a.link {
+    display: block;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    opacity: 0.1;
+    background-blend-mode: exclusion; }
+    div.content div.blog-post a.link:hover {
+      opacity: 0.2; }
+
+div.spinner {
+  padding: 70px 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center; }
+  div.spinner div {
+    padding-top: 40px;
+    font-style: italic;
+    font-size: 90%; }
+  div.spinner svg {
+    animation: rotator 2s linear infinite; }
+    div.spinner svg .path {
+      stroke-dasharray: 187;
+      stroke-dashoffset: 0;
+      transform-origin: center;
+      animation: dash 2s ease-in-out infinite, colors 8s ease-in-out infinite; }
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(270deg); } }
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4; }
+  25% {
+    stroke: #DE3E35; }
+  50% {
+    stroke: #F7C223; }
+  75% {
+    stroke: #1B9A59; }
+  100% {
+    stroke: #4285F4; } }
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187; }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg); }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg); } }
