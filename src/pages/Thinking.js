@@ -21,41 +21,30 @@ const SvgIcon = ({link}) => {
 
   return <object data="https://s.cdpn.io/3/kiwi.svg" type="image/svg+xml"></object>
   return <svg viewBox="0 0 50 50">
-    <use width={64} height={64} xlinkHref="https://s.cdpn.io/3/kiwi.svg" />
+    <use width={50} height={50} xlinkHref="https://s.cdpn.io/3/kiwi.svg" />
   </svg>;
 }
 
-// const createMarkup = (content) => {
-//   console.log("createMarkup", content)
-//   return {__html: content};
-// }
-
-// {/* <svg viewBox="0 0 100 100">
-//   <use xlink:href={post.featured_image}></use>
-// </svg> */}
-
 const getCategoryColor= (category) => {
   let color = ''
-  if(category === 'Strategy') color = 'red'
-  else if(category === 'Innovation') color = 'orange'
-  else if(category === 'Development') color = 'blue'
+  if(category === 'Strategy') color = '#FFAB00'          // yellow
+  else if(category === 'Innovation') color = '#E91E63'   // red
+  else if(category === 'Development') color = '#00BFA5'  // green
   else throw console.log("ERROR, you need to enter the either Strategy, Innovation or Development as the blog category")
   return color
 }
 
 const BlogPost = ({post,i}) => {
   const catColor = getCategoryColor(post.categories[0].name)
-  console.log('post', post)
-  // return <div dangerouslySetInnerHTML={createMarkup(post.body)} className={i === 0? 'blog-post small': i%4 === 0? 'blog-post big': 'blog-post small'}/>
   return (
-    <div className={i === 0? 'blog-post small': i%4 === 0? 'blog-post big': 'blog-post small'}>
+    <div style={{borderLeft: `3px solid ${catColor}`}} className={i === 0? 'blog-post small': i%4 === 0? 'blog-post big': 'blog-post small'}>
       <div className='inner'>
         <SvgIcon link={post.featured_image}/>
         <h2>{post.title}</h2>
         <h3 style={{color:catColor}} >{post.categories[0].name}</h3>
         <h4>{post.summary}</h4>
       </div>
-      <Link style={{borderLeft: `2px solid ${catColor}`, background: catColor}} className='link' to='post'> </Link>
+      <Link style={{background: catColor}} className='link' to='post'> </Link>
     </div>
   )
 

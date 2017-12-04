@@ -2,6 +2,10 @@
 $theblue: rgba(41, 98, 255,1);
 $theblue0: rgba(41, 98, 255,0);
 
+$theyellow: #FFAB00;
+$thegreen: #00BFA5;
+$thered: #E91E63;
+
 
 // variables for loading spinner
 $offset: 187;
@@ -145,26 +149,48 @@ div.content {
   div.blog-post {
     &.small {
       position: relative;
-      background: ghostwhite;
-      margin: 15px;
+      // background: ghostwhite;
+      margin: 10px;
       box-sizing: border-box;
       padding: 20px;
       flex-grow: 1;
       width: 20%;
-      h2 {
-        font-size: 110%;
-        text-transform: uppercase;
-      }
-      h3 {
-        font-size: 100%;
-        &.red { color: tomato}
-        &.blue { color: navy}
-        &.orange { color: orange}
-        // text-transform: uppercase;
-      }
-      h4 {
-        font-size: 95%;
-        font-weight: 400;
+      div.inner {
+        display:inline-flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: center;
+        object {
+          width: 60%;
+          // height: 50px;
+          min-width: 110px;
+          max-height: 140px;
+          margin: 20px 0;
+          // align-self: center;
+        }
+        h2 {
+          width: 100%;
+          line-height: 20px;
+          // height: 30px;
+          margin: 20px 0 0 0;
+          font-size: 120%;
+          text-transform: uppercase;
+        }
+        h3 {
+          margin: 20px 0 0 0;
+          width: 100%;
+          font-size: 100%;
+          &.red { color: $thered}
+          &.yellow { color: $theyellow}
+          &.green { color: $thegreen}
+          // text-transform: uppercase;
+        }
+        h4 {
+          width: 100%;
+          font-size: 95%;
+          font-weight: 400;
+        }
+
       }
       &.big {
         border: 2px solid red;
@@ -173,16 +199,17 @@ div.content {
     }
     a.link {
       display: block;
+      // display: none;
       top:0;
       right:0;
       left:0;
       bottom:0;
       position: absolute;
-      opacity: 0.1;
+      opacity: 0.0;
       // background: red;
-      background-blend-mode:exclusion;
+      // background-blend-mode:exclusion;
       &:hover {
-        opacity: 0.2;
+        opacity: 0.1;
         // background: red;
       }
     }
