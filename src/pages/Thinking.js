@@ -5,6 +5,9 @@ import PageTitle from '../molecules/PageTitle'
 import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'
 
+import {loadBlogPosts} from '../store/modules/actions'
+
+import {connect} from 'react-redux'
 import Butter from 'buttercms';
 
 const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
@@ -50,17 +53,22 @@ const FilterButton = ({filterType, state, handleClick}) => {
   return <div className={className} data-value={filterType} onClick={handleClick}>{filterType}</div>
 }
 
-export default class Homepage extends Component {
+class Thinking extends Component {
 
   state = {
-    content: null,
-    filter: 'All'
+    filter: 'All',
+    page: 1
+  }
+
+  fetchPosts = (page) =>{
+    butter.post.list({page: page, page_size: 8}).then((response) => {
+      this.setState({page: response.data.meta.next_page})
+      this.props.dispatch(loadBlogPosts(response.data))
+    });
   }
 
   componentWillMount() {
-    butter.post.list({page: 1, page_size: 8}).then((response) => {
-      this.setState({content:response.data})
-    })
+    this.fetchPosts(1)
   }
 
   selectFilter = (e) => {
@@ -69,11 +77,18 @@ export default class Homepage extends Component {
     else this.setState({filter: 'All' })
   }
 
+  loadMore = () => {
+    // const nextPage = this.state.page + 1
+    this.fetchPosts(this.state.page)
+  }
+
+
   render () {
-    const {content, filter} = this.state
+    const {filter, page} = this.state
+    const {blogPosts} = this.props
     let posts = null
-    if(!!content) posts = content.data
-    if(!!posts && filter !== 'All') posts = content.data.filter(post => post.categories[0].name === filter)
+    if(!!blogPosts && !!blogPosts) posts = blogPosts
+    if(!!posts && filter !== 'All') posts = blogPosts.filter(post => post.categories[0].name === filter)
     return [
       <div key='thinking' className='other'>
         <Nav/>
@@ -87,7 +102,14 @@ export default class Homepage extends Component {
       <div key='content' className='content'>
         {!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }
       </div>,
+      <div key='load-more' className='filter-button load-more'>
+        {!!posts && !!page? <div onClick={this.loadMore}> Load More</div> : null}
+      </div>,
       <Footer key='footer'/>
     ]
   }
 }
+
+export default connect(state => ({
+  blogPosts: state.data.posts
+}))(Thinking)

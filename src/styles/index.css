@@ -95,6 +95,8 @@ div.filter-button {
   align-content: center;
   height: 100%;
   margin: 40px 0 0 10px; }
+  div.filter-button.load-more {
+    margin: 20px 0 50px 0; }
   div.filter-button div {
     text-align: center;
     text-transform: uppercase;

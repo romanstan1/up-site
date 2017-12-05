@@ -31,7 +31,10 @@ class About extends Component {
         <Background />,
         <PageTitle heading='Digital Growth Agency' subheading='We deliver digital solutions that help our clients increase their business agility'/>
       </div>,
-      <Footer key='footer'/>
+      <div key='about-content' className='about-content'>
+
+      </div>
+      <Footer key='footer'/>,
     ]
   }
 }
