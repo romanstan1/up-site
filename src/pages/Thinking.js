@@ -6,6 +6,7 @@ import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'
 
 import Butter from 'buttercms';
+
 const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
 
 const LoadingSpinner = () =>
@@ -18,18 +19,13 @@ const LoadingSpinner = () =>
 
 const SvgIcon = ({link}) => {
   return <object data={link} type="image/svg+xml"></object>
-
-  return <object data="https://s.cdpn.io/3/kiwi.svg" type="image/svg+xml"></object>
-  return <svg viewBox="0 0 50 50">
-    <use width={50} height={50} xlinkHref="https://s.cdpn.io/3/kiwi.svg" />
-  </svg>;
 }
 
 const getCategoryColor= (category) => {
   let color = ''
-  if(category === 'Strategy') color = '#FFAB00'          // yellow
-  else if(category === 'Innovation') color = '#E91E63'   // red
-  else if(category === 'Development') color = '#00BFA5'  // green
+  if(category === 'Strategy') color = '#FFAB00'           // yellow
+  else if(category === 'Innovation') color = '#E91E63'    // red
+  else if(category === 'Development') color = '#00BFA5'   // green
   else throw console.log("ERROR, you need to enter the either Strategy, Innovation or Development as the blog category")
   return color
 }
@@ -42,18 +38,23 @@ const BlogPost = ({post,i}) => {
         <SvgIcon link={post.featured_image}/>
         <h2>{post.title}</h2>
         <h3 style={{color:catColor}} >{post.categories[0].name}</h3>
-        <h4>{post.summary}</h4>
+        <h4>{post.summary.length > 120? post.summary.substring(0,120).concat('...') : post.summary }</h4>
       </div>
       <Link style={{background: catColor}} className='link' to='post'> </Link>
     </div>
   )
+}
 
+const FilterButton = ({filterType, state, handleClick}) => {
+  const className = filterType === state? 'active' : ''
+  return <div className={className} data-value={filterType} onClick={handleClick}>{filterType}</div>
 }
 
 export default class Homepage extends Component {
 
   state = {
-    content: null
+    content: null,
+    filter: 'All'
   }
 
   componentWillMount() {
@@ -62,22 +63,29 @@ export default class Homepage extends Component {
     })
   }
 
+  selectFilter = (e) => {
+    const selected = e.target.dataset.value
+    if(selected !== this.state.filter) this.setState({filter: selected })
+    else this.setState({filter: 'All' })
+  }
+
   render () {
-    const {content} = this.state
-    // console.log("content",content)
+    const {content, filter} = this.state
+    let posts = null
+    if(!!content) posts = content.data
+    if(!!posts && filter !== 'All') posts = content.data.filter(post => post.categories[0].name === filter)
     return [
       <div key='thinking' className='other'>
         <Nav/>
         <PageTitle heading='Thinking' subheading='Some thoughts, some ideas'/>
       </div>,
+      <div key='filter-buttons' className='filter-button'>
+        <FilterButton state={filter} handleClick={this.selectFilter} filterType='Strategy'/>
+        <FilterButton state={filter} handleClick={this.selectFilter} filterType='Development'/>
+        <FilterButton state={filter} handleClick={this.selectFilter} filterType='Innovation'/>
+      </div>,
       <div key='content' className='content'>
-
-        <br/><br/>
-
-        {!!content? content.data.map((post, i) => <BlogPost key={i} post={post} i={i}/>): <LoadingSpinner/> }
-
-        <br/><br/>
-
+        {!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }
       </div>,
       <Footer key='footer'/>
     ]

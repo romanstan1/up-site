@@ -89,61 +89,108 @@ footer {
   height: 60vh;
   background: ghostwhite; }
 
+div.filter-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  margin: 40px 0 0 10px; }
+  div.filter-button div {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 72%;
+    padding: 6px 24px;
+    color: #2962ff;
+    line-height: 25px;
+    border-collapse: collapse;
+    border: 2px solid #2962ff;
+    cursor: pointer; }
+    div.filter-button div.active {
+      color: #FFFEFE;
+      background: #2962ff; }
+    div.filter-button div:hover {
+      color: #FFFEFE;
+      background: #2962ff; }
+    div.filter-button div:nth-of-type(2) {
+      margin: 0 -2px; }
+
 div.content {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   padding: 15px;
   margin: 20px 8%; }
-  div.content div.blog-post.small {
+  div.content div.blog-post {
     position: relative;
     margin: 10px;
     box-sizing: border-box;
     padding: 20px;
     flex-grow: 1;
-    width: 20%; }
-    div.content div.blog-post.small div.inner {
+    width: 20%;
+    background: ghostwhite; }
+    div.content div.blog-post div.inner {
       display: inline-flex;
-      justify-content: start;
       flex-direction: column;
-      align-items: center; }
-      div.content div.blog-post.small div.inner object {
+      align-items: center;
+      width: 100%; }
+      div.content div.blog-post div.inner object {
         width: 60%;
         min-width: 110px;
         max-height: 140px;
         margin: 20px 0; }
-      div.content div.blog-post.small div.inner h2 {
+      div.content div.blog-post div.inner h2 {
         width: 100%;
         line-height: 20px;
         margin: 20px 0 0 0;
         font-size: 120%;
         text-transform: uppercase; }
-      div.content div.blog-post.small div.inner h3 {
+      div.content div.blog-post div.inner h3 {
         margin: 20px 0 0 0;
         width: 100%;
         font-size: 100%; }
-        div.content div.blog-post.small div.inner h3.red {
+        div.content div.blog-post div.inner h3.red {
           color: #E91E63; }
-        div.content div.blog-post.small div.inner h3.yellow {
+        div.content div.blog-post div.inner h3.yellow {
           color: #FFAB00; }
-        div.content div.blog-post.small div.inner h3.green {
+        div.content div.blog-post div.inner h3.green {
           color: #00BFA5; }
-      div.content div.blog-post.small div.inner h4 {
+      div.content div.blog-post div.inner h4 {
         width: 100%;
+        display: block;
         font-size: 95%;
         font-weight: 400; }
-    div.content div.blog-post.small.big {
-      border: 2px solid red;
-      display: flex; }
-  div.content div.blog-post a.link {
-    display: block;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    position: absolute;
-    opacity: 0.0; }
-    div.content div.blog-post a.link:hover {
-      opacity: 0.1; }
+    div.content div.blog-post.big {
+      width: 100%;
+      flex-grow: 3;
+      position: relative;
+      justify-content: flex-end; }
+      div.content div.blog-post.big div.inner {
+        min-height: 400px;
+        margin-left: 50%;
+        width: 50%;
+        display: inline-flex;
+        justify-content: center;
+        padding-right: 30px;
+        align-items: center; }
+        div.content div.blog-post.big div.inner object {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 50%;
+          min-width: 110px;
+          max-height: 250px;
+          margin: 0; }
+    div.content div.blog-post a.link {
+      display: block;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      opacity: 0.0; }
+      div.content div.blog-post a.link:hover {
+        opacity: 0.1; }
 
 div.spinner {
   padding: 70px 0;
