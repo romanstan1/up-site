@@ -25,8 +25,6 @@ export default class App extends Component {
             <Route exact path="/services" component={Services} />
             <Route path="/thinking/:slug" component={Postpage} />
             <Route exact path="/thinking" component={Thinking} />
-            {/* <Route exact path="/thinking" component={Thinking} />
-            <Route exact path="/thinking/:slug" component={Postpage} /> */}
             <Route component={Error404}/>
           </Switch>
         </span>

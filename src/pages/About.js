@@ -22,7 +22,6 @@ class Background extends Component {
 class About extends Component {
   componentDidMount() {
     init()
-    // console.log("homepage", this.props.match)
     if(this.props.data.selectedNav === ''){
       this.props.dispatch(selectNav('about'))
     }
@@ -39,6 +38,20 @@ class About extends Component {
         <PageTitle heading='Digital Growth Agency' subheading='We deliver digital solutions that help our clients increase their business agility'/>
       </div>,
       <div key='about-content' className='about-content'>
+        <div className='headings'>
+          <p>Independant. Global. Two decades of digital solutions.</p>
+          <p>These guys like us.</p>
+        </div>
+        <div className='partner'>
+          <div>logo</div>
+          <div>logo</div>
+          <div>logo</div>
+          <div>logo</div>
+          <div>logo</div>
+          <div>logo</div>
+          <div>logo</div>
+          <div>logo</div>          
+        </div>
 
       </div>,
       <Footer key='footer'/>,

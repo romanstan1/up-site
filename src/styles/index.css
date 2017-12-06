@@ -15,6 +15,7 @@ a {
 
 div.nav {
   position: fixed;
+  position: absolute;
   top: 0;
   z-index: 10;
   width: 100%;
@@ -22,8 +23,7 @@ div.nav {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 5px 10%;
-  background: tomato; }
+  padding: 5px 10%; }
   div.nav div.logo {
     align-self: flex-end;
     display: inline-flex; }
@@ -106,17 +106,20 @@ div.other {
 footer {
   margin-top: 20vh;
   height: 50vh;
+  padding-bottom: 80px;
   background: #303030;
   display: block;
   color: white;
   font-size: 90%;
   position: relative;
   text-align: center; }
+  footer > div {
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 20px 0; }
   footer div.top-row {
-    padding: 40px;
-    margin-top: 10vh;
     position: relative;
-    display: inline-block; }
+    display: block; }
     footer div.top-row a {
       display: inline-block;
       padding: 3px 1px;
@@ -128,8 +131,9 @@ footer {
       footer div.top-row a:hover {
         border-bottom: 1px solid white; }
   footer div.bottom-row {
-    display: inline-block;
-    text-align: center; }
+    display: block;
+    text-align: center;
+    position: relative; }
     footer div.bottom-row div {
       display: inline-block;
       font-size: 70%;
@@ -246,6 +250,13 @@ div.content {
       opacity: 0.0; }
       div.content div.blog-post a.link:hover {
         opacity: 0.1; }
+
+div.about-content div.headings {
+  margin: 2vh 0;
+  padding: 40px 20vw; }
+  div.about-content div.headings p {
+    font-size: 220%;
+    font-weight: 300; }
 
 div.single-post {
   width: 100%;

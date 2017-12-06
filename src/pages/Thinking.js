@@ -81,7 +81,6 @@ class Thinking extends Component {
   }
 
   loadMore = () => {
-    // const nextPage = this.state.page + 1
     this.fetchPosts(this.state.page, false)
   }
 
