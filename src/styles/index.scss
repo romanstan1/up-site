@@ -258,7 +258,7 @@ div.content {
     padding: 20px;
     flex-grow: 1;
     width: 20%;
-    background: ghostwhite;
+    // background: ghostwhite;
     div.inner {
       display:inline-flex;
       // justify-content: start;
@@ -338,13 +338,80 @@ div.content {
 div.about-content {
   div.headings {
     margin: 2vh 0;
-    padding: 40px 20vw;
+    padding: 50px 20vw 0px 20vw;
     p {
       font-size: 220%;
       font-weight: 300;
+      margin: 15px 0;
+      padding: 15px 0;
+    }
+  }
+  div.partners {
+    margin-top: 10px;
+    display: flex;
+    padding: 0px 20vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    // justify-content: center;
+    div {
+      // background: ghostwhite;
+      width: 18%;
+      margin: 1% 0;
+    }
+  }
+
+  div.slideshow-wrapper {
+    background: black;
+    margin: 80px 0;
+    li.dot {
+      box-shadow:none;
+    }
+    > div {
+      height: 80vh;
+      > div.carousel {
+          height: 80vh;
+        li.slide {
+          height: 80vh;
+          div.slideshow {
+            height: 80vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: left;
+            div.text {
+              margin-left: 20vw;
+              font-size: 220%;
+              font-weight: 300;
+              padding: 20px 0;
+              width: 60vw;
+            }
+            div.by {
+              margin-left: 20vw;
+              width: 80vw;
+              text-transform: uppercase;
+              font-weight: 600;
+              font-size: 130%;
+            }
+          }
+        }
+      }
+    }
+  }
+  div.about-services {
+    background: grey;
+    div.service {
+      object {
+        width: 40px;
+        height: 40px;
+
+      }
     }
   }
 }
+
 div.single-post {
   width: 100%;
   display: flex;

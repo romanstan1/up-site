@@ -12,5 +12,4 @@ const UniproLogo = () =>
     <path d="M399.21,156.81a23.65,23.65,0,1,1-23.65-23.65A23.65,23.65,0,0,1,399.21,156.81Z" transform="translate(-123.02 -133.16)"/>
   </svg>
 
-
 export default UniproLogo
