@@ -24,7 +24,7 @@ const SvgIcon = ({link}) => {
   return <object data={link} type="image/svg+xml"></object>
 }
 
-const getCategoryColor= (category) => {
+export const getCategoryColor= (category) => {
   let color = ''
   if(category === 'Strategy') color = '#FFAB00'           // yellow
   else if(category === 'Innovation') color = '#E91E63'    // red
@@ -62,16 +62,16 @@ class Thinking extends Component {
     page: 1
   }
 
-  fetchPosts = (page) =>{
+  fetchPosts = (page, replace) =>{
     butter.post.list({page: page, page_size: 8}).then(response => {
       console.log("response",response)
       this.setState({page: response.data.meta.next_page})
-      this.props.dispatch(loadBlogPosts(response.data))
+      this.props.dispatch(loadBlogPosts(response.data, replace))
     });
   }
 
   componentWillMount() {
-    this.fetchPosts(1)
+    this.fetchPosts(1, true)
   }
 
   selectFilter = (e) => {
@@ -82,7 +82,7 @@ class Thinking extends Component {
 
   loadMore = () => {
     // const nextPage = this.state.page + 1
-    this.fetchPosts(this.state.page)
+    this.fetchPosts(this.state.page, false)
   }
 
 

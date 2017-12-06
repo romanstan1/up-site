@@ -14,7 +14,7 @@ export default (state=initialState, action)=>{
     }
     case 'LOAD_BLOG_POSTS': return {
       ...state,
-      posts: state.posts.concat(action.payload.data)
+      posts: action.replace? action.payload.data : state.posts.concat(action.payload.data)
     }
     default: return state
   }

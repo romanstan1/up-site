@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-
 import PageTitle from '../molecules/PageTitle'
 import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'
-
-import {BlogPost, LoadingSpinner} from './Thinking'
+import {BlogPost, LoadingSpinner, getCategoryColor} from './Thinking'
 import {loadBlogPosts} from '../store/modules/actions'
 import moment from 'moment'
 import {connect} from 'react-redux'
@@ -13,34 +11,26 @@ import Butter from 'buttercms';
 
 const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
 
+const SinglePost = ({singlePost}) =>
+  <div className='single-post' >
+    <h2>{singlePost.title}</h2>
+    <h3> By {singlePost.author.first_name} {singlePost.author.last_name} - {moment(singlePost.created).format('Do MMMM YYYY')}</h3>
+     <div className='inner' dangerouslySetInnerHTML={{__html: singlePost.body}}/>
+  </div>
 
-
-
-
-
-const SinglePost = ({singlePost}) => {
-  return (
-    <div className='single-post' >
-      <h2>{singlePost.title}</h2>
-      <h3> By {singlePost.author.first_name} {singlePost.author.last_name} - {moment(singlePost.created).format('Do MMMM YYYY')}</h3>
-       <div className='inner' dangerouslySetInnerHTML={{__html: singlePost.body}}/>
+const Author = ({author}) =>
+  <div className='author-postpage' >
+    <div className='image'><img src={author.profile_image} alt="Profile Picture"/></div>
+    <div className='text'>
+      <h3> About {author.first_name} {author.last_name}</h3>
+      <h4> {author.bio} </h4>
+      <a href={author.linkedin_url} target='_blank'>LinkedIn</a>
     </div>
-  )
-}
-const Author = ({author}) => {
-  return (
-    <div className='author-postpage' >
-      <div className='image'><img src={author.profile_image} alt="Profile Picture"/></div>
-      <div className='text'>
-        <h3> About {author.first_name} {author.last_name}</h3>
-        <h4> {author.bio} </h4>
-        <a href={author.linkedin_url}>LinkedIn</a>
-      </div>
-    </div>
-  )
-}
+  </div>
 
 
+const CatHeading = ({title, color}) =>
+  <div style={{color}} className='category-heading'>{title}</div>
 
 
 class Postpage extends Component {
@@ -57,7 +47,7 @@ class Postpage extends Component {
 
   fetchSimilarityPosts = () =>{
     butter.post.list({page: 1, page_size: 3}).then(response => {
-      this.props.dispatch(loadBlogPosts(response.data))
+      this.props.dispatch(loadBlogPosts(response.data, true))
     });
   }
 
@@ -66,7 +56,6 @@ class Postpage extends Component {
     this.fetchSinglePost(slug)
     if(!this.props.blogPosts.length) this.fetchSimilarityPosts()
   }
-
 
   componentWillReceiveProps(newProps){
     const {slug} = newProps.match.params
@@ -79,16 +68,19 @@ class Postpage extends Component {
     const {blogPosts} = this.props
     const {singlePost} = this.state
     let posts = null
-    console.log("singlePost",singlePost)
     if(!!blogPosts && !!blogPosts) posts = blogPosts.filter((post, i) => i < 3)
-    // console.log("moment",moment().format('Do MMMM YYYY'))
+    let catColor = null
+    if(!!singlePost) catColor = getCategoryColor(singlePost.categories[0].name)
     return [
-      <div key='thinking' className='other postpage'>
+      <div key='thinking' style={{background: catColor}} className='other postpage'>
         <Nav/>
+          {!!singlePost?<CatHeading title={singlePost.categories[0].name} color={catColor}/>: null}
       </div>,
       <div key='content' className='content'>
         {
-          !!singlePost?  <span><SinglePost singlePost={singlePost}/> <Author author={singlePost.author}/></span> : <LoadingSpinner/>
+          !!singlePost?
+          <span><SinglePost singlePost={singlePost}/><Author author={singlePost.author}/></span>
+           : <LoadingSpinner/>
         }
         {!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }
       </div>,

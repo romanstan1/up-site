@@ -16,7 +16,7 @@ import Error404 from './pages/Error404'
 export default class App extends Component {
   render() {
     return (
-      // <Router history={history}>
+      // <Router>
         <span>
           <Switch>
             <Route exact path="/" component={About} />

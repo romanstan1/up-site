@@ -14,14 +14,16 @@ a {
   text-decoration: none; }
 
 div.nav {
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 10;
   width: 100%;
-  height: 70px;
+  height: 75px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 0 10%; }
+  padding: 5px 10%;
+  background: tomato; }
   div.nav div.logo {
     align-self: flex-end;
     display: inline-flex; }
@@ -42,7 +44,7 @@ div.nav {
       text-transform: uppercase;
       margin: 0 -2px 5px 40px;
       padding: 3px 1px;
-      border-bottom: 2px solid rgba(41, 98, 255, 0);
+      border-bottom: 1px solid rgba(41, 98, 255, 0);
       font-size: 76%;
       font-weight: 300;
       color: #FFFEFE; }
@@ -81,14 +83,64 @@ div.other {
   width: 100vw;
   height: 80vh;
   background: #2962ff;
-  color: #FFFEFE; }
+  color: #FFFEFE;
+  position: relative; }
   div.other.postpage {
-    height: 50vh;
-    background: #FFAB00; }
+    background: white;
+    height: 50vh; }
+  div.other div.category-heading {
+    background: white;
+    position: absolute;
+    bottom: 0px;
+    transform: translateY(50%);
+    left: calc(20vw);
+    text-transform: uppercase;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 72%;
+    padding: 6px 44px;
+    line-height: 25px;
+    color: black; }
 
 footer {
-  height: 60vh;
-  background: ghostwhite; }
+  margin-top: 20vh;
+  height: 50vh;
+  background: #303030;
+  display: block;
+  color: white;
+  font-size: 90%;
+  position: relative;
+  text-align: center; }
+  footer div.top-row {
+    padding: 40px;
+    margin-top: 10vh;
+    position: relative;
+    display: inline-block; }
+    footer div.top-row a {
+      display: inline-block;
+      padding: 3px 1px;
+      margin: 0 20px;
+      border-bottom: 1px solid rgba(41, 98, 255, 0);
+      font-size: 80%;
+      font-weight: 300;
+      color: white; }
+      footer div.top-row a:hover {
+        border-bottom: 1px solid white; }
+  footer div.bottom-row {
+    display: inline-block;
+    text-align: center; }
+    footer div.bottom-row div {
+      display: inline-block;
+      font-size: 70%;
+      color: white;
+      font-size: 300; }
+      footer div.bottom-row div:after {
+        content: "|";
+        padding: 0 10px; }
+      footer div.bottom-row div:nth-last-of-type(1):after {
+        content: "";
+        padding: 0px; }
 
 div.filter-button {
   display: flex;
@@ -103,7 +155,7 @@ div.filter-button {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 72%;
-    padding: 6px 24px;
+    padding: 6px 44px;
     color: #2962ff;
     line-height: 25px;
     border-collapse: collapse;
@@ -213,21 +265,24 @@ div.single-post {
     padding-top: 20px; }
   div.single-post div.inner {
     padding: 40px 0 40px 7vw; }
+    div.single-post div.inner img {
+      width: 100%;
+      height: 100%; }
 
 div.author-postpage {
   position: relative;
-  padding: 60px 0;
-  margin: 2% 0 5% 0;
+  padding: 70px 0;
+  margin: 0% 0 6% calc(12vw - 15px);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center; }
   div.author-postpage:before {
     position: absolute;
     content: "";
     display: block;
-    width: 100%;
-    top: 0;
-    left: calc(20vw - 15px); }
+    width: 200px;
+    border-top: 6px solid #333333;
+    top: 0px; }
   div.author-postpage div.image {
     width: 20%;
     max-width: 150px;
@@ -246,7 +301,7 @@ div.author-postpage {
       transform: translateY(-50%);
       position: absolute; }
   div.author-postpage div.text {
-    width: 55%;
+    width: 60%;
     padding: 5px;
     margin-left: 5%; }
     div.author-postpage div.text h3 {
@@ -254,7 +309,11 @@ div.author-postpage {
       text-transform: uppercase; }
     div.author-postpage div.text h4 {
       font-size: 95%;
-      font-weight: 400; }
+      font-weight: 400;
+      margin: 12px 0; }
+    div.author-postpage div.text a {
+      font-size: 85%;
+      color: #2962ff; }
 
 div.spinner {
   padding: 70px 0;

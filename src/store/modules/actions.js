@@ -6,9 +6,10 @@ export const selectNav = (selected) => {
   })
 }
 
-export const loadBlogPosts = (posts) => {
+export const loadBlogPosts = (posts, replace) => {
   return dispatch => dispatch({
     type: 'LOAD_BLOG_POSTS',
-    payload: posts
+    payload: posts,
+    replace
   })
 }
