@@ -8,26 +8,33 @@ import Contact from './pages/Contact'
 import About from './pages/About'
 import Thinking from './pages/Thinking'
 import Services from './pages/Services'
+import Postpage from './pages/Postpage'
+import Error404 from './pages/Error404'
 
-const history = createBrowserHistory()
+// const history = createBrowserHistory()
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
-      <Router history={history}>
+      // <Router history={history}>
         <span>
           <Switch>
             <Route exact path="/" component={About} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/thinking" component={Thinking} />
             <Route exact path="/services" component={Services} />
-            <Route component={About}/>
+            <Route path="/thinking/:slug" component={Postpage} />
+            <Route exact path="/thinking" component={Thinking} />
+            {/* <Route exact path="/thinking" component={Thinking} />
+            <Route exact path="/thinking/:slug" component={Postpage} /> */}
+            <Route component={Error404}/>
           </Switch>
         </span>
-      </Router>)
+      // </Router>
+    )
   }
 }
-export default connect(state => ({
-  data: state.data
-}))(App)
+// export default App
+// export default connect(state => ({
+//   data: state.data
+// }))(App)

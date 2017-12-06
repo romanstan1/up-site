@@ -38,12 +38,12 @@ div.nav {
     align-self: flex-end;
     display: inline-flex; }
     div.nav div.menu div a {
-      text-transform: capitalize;
       display: inline-block;
-      margin: 0 -2px 0 40px;
-      padding: 10px 1px;
+      text-transform: uppercase;
+      margin: 0 -2px 5px 40px;
+      padding: 3px 1px;
       border-bottom: 2px solid rgba(41, 98, 255, 0);
-      font-size: 80%;
+      font-size: 76%;
       font-weight: 300;
       color: #FFFEFE; }
       div.nav div.menu div a:hover {
@@ -54,7 +54,7 @@ div.nav {
 div.titles {
   position: absolute;
   top: 50%;
-  left: 20%;
+  left: 20vw;
   transform: translateY(-50%); }
   div.titles h2 {
     font-size: 220%;
@@ -82,8 +82,9 @@ div.other {
   height: 80vh;
   background: #2962ff;
   color: #FFFEFE; }
-  div.other h2 {
-    top: 45%; }
+  div.other.postpage {
+    height: 50vh;
+    background: #FFAB00; }
 
 footer {
   height: 60vh;
@@ -193,6 +194,67 @@ div.content {
       opacity: 0.0; }
       div.content div.blog-post a.link:hover {
         opacity: 0.1; }
+
+div.single-post {
+  width: 100%;
+  display: flex;
+  padding: 0px calc(12vw - 15px);
+  flex-direction: column; }
+  div.single-post h2 {
+    font-size: 220%;
+    font-weight: 800;
+    margin: 0;
+    padding: 5px 0px; }
+  div.single-post h3 {
+    margin: 0;
+    font-size: 150%;
+    font-weight: 300;
+    font-style: italic;
+    padding-top: 20px; }
+  div.single-post div.inner {
+    padding: 40px 0 40px 7vw; }
+
+div.author-postpage {
+  position: relative;
+  padding: 60px 0;
+  margin: 2% 0 5% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  div.author-postpage:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    top: 0;
+    left: calc(20vw - 15px); }
+  div.author-postpage div.image {
+    width: 20%;
+    max-width: 150px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%; }
+    div.author-postpage div.image:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%; }
+    div.author-postpage div.image img {
+      overflow: hidden;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute; }
+  div.author-postpage div.text {
+    width: 55%;
+    padding: 5px;
+    margin-left: 5%; }
+    div.author-postpage div.text h3 {
+      margin: 0;
+      text-transform: uppercase; }
+    div.author-postpage div.text h4 {
+      font-size: 95%;
+      font-weight: 400; }
 
 div.spinner {
   padding: 70px 0;

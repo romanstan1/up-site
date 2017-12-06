@@ -1,7 +1,7 @@
 
 
 const initialState = {
-  selectedNav: 'about',
+  selectedNav: '',
   posts: []
 }
 

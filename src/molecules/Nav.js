@@ -8,12 +8,16 @@ const NavLink = ({text, handleSelect, selected, children}) => {
   const active = selected === text? 'active' : ''
   return (
       <div onClick={handleSelect} data-value={text}>
-        <Link className={active} to={text}>{children || text}</Link>
+        <Link className={active} to={`/${text}`}>{children || text}</Link>
       </div>
     )
 }
 
 class Nav extends Component {
+
+  componentDidMount() {
+    // console.log("nav", this.props)
+  }
 
   handleSelect = (e) => {
     this.props.dispatch(selectNav(e.currentTarget.dataset.value))

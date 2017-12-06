@@ -12,7 +12,7 @@ import Butter from 'buttercms';
 
 const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
 
-const LoadingSpinner = () =>
+export const LoadingSpinner = () =>
 <div className="spinner" >
   <svg width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
     <circle className="path" fill="none" strokeWidth="6" strokeLinecap="square" cx="33" cy="33" r="30"></circle>
@@ -33,17 +33,17 @@ const getCategoryColor= (category) => {
   return color
 }
 
-const BlogPost = ({post,i}) => {
+export const BlogPost = ({post,i}) => {
   const catColor = getCategoryColor(post.categories[0].name)
   return (
-    <div style={{borderLeft: `3px solid ${catColor}`}} className={i === 0? 'blog-post small': i%4 === 0? 'blog-post big': 'blog-post small'}>
+    <div style={{borderLeft: `3px solid ${catColor}`}} className={i%4 === 0? 'blog-post big': 'blog-post small'}>
       <div className='inner'>
         <SvgIcon link={post.featured_image}/>
         <h2>{post.title}</h2>
         <h3 style={{color:catColor}} >{post.categories[0].name}</h3>
         <h4>{post.summary.length > 120? post.summary.substring(0,120).concat('...') : post.summary }</h4>
       </div>
-      <Link style={{background: catColor}} className='link' to='post'> </Link>
+      <Link to={`/thinking/${post.slug}`} style={{background: catColor}} className='link'> </Link>
     </div>
   )
 }
@@ -53,6 +53,8 @@ const FilterButton = ({filterType, state, handleClick}) => {
   return <div className={className} data-value={filterType} onClick={handleClick}>{filterType}</div>
 }
 
+
+
 class Thinking extends Component {
 
   state = {
@@ -61,7 +63,8 @@ class Thinking extends Component {
   }
 
   fetchPosts = (page) =>{
-    butter.post.list({page: page, page_size: 8}).then((response) => {
+    butter.post.list({page: page, page_size: 8}).then(response => {
+      console.log("response",response)
       this.setState({page: response.data.meta.next_page})
       this.props.dispatch(loadBlogPosts(response.data))
     });
@@ -95,9 +98,9 @@ class Thinking extends Component {
         <PageTitle heading='Thinking' subheading='Some thoughts, some ideas'/>
       </div>,
       <div key='filter-buttons' className='filter-button'>
-        <FilterButton state={filter} handleClick={this.selectFilter} filterType='Strategy'/>
-        <FilterButton state={filter} handleClick={this.selectFilter} filterType='Development'/>
-        <FilterButton state={filter} handleClick={this.selectFilter} filterType='Innovation'/>
+        {['Strategy','Development','Innovation'].map((filterType, i) =>
+          <FilterButton key={i} state={filter} handleClick={this.selectFilter} filterType={filterType}/>
+        )}
       </div>,
       <div key='content' className='content'>
         {!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }

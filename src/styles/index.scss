@@ -6,6 +6,8 @@ $theyellow: #FFAB00;
 $thegreen: #00BFA5;
 $thered: #E91E63;
 
+$theblack: #333333;
+
 
 // variables for loading spinner
 $offset: 187;
@@ -72,19 +74,21 @@ div.nav {
     display: inline-flex;
     div {
       a {
-        text-transform:capitalize;
+        // text-transform:capitalize;
         display: inline-block;
-        // text-transform: uppercase;
-        margin: 0 -2px 0 40px;
-        padding: 10px 1px;
+        text-transform: uppercase;
+        margin: 0 -2px 5px 40px;
+        padding: 3px 1px;
         border-bottom: 2px solid $theblue0;
-        font-size: 80%;
+        font-size: 76%;
         font-weight: 300;
         color:$stark;
         &:hover {
+          // font-weight: 600;
           border-bottom: 1px solid $stark;
         }
         &.active {
+          // font-weight: 600;
           border-bottom: 1px solid $stark;
         }
       }
@@ -96,7 +100,7 @@ div.nav {
 div.titles {
   position: absolute;
   top: 50%;
-  left: 20%;
+  left: 20vw;
   transform: translateY(-50%);
   h2 {
     font-size: 220%;
@@ -129,8 +133,9 @@ div.other {
   height: 80vh;
   background: $theblue;
   color: $stark;
-  h2 {
-    top: 45%;
+  &.postpage {
+    height: 50vh;
+    background: $theyellow;
   }
 }
 
@@ -264,13 +269,87 @@ div.content {
 }
 
 div.about-content {
-  
+
+}
+div.single-post {
+  width: 100%;
+  display: flex;
+  padding: 0px calc(12vw - 15px);
+  flex-direction: column;
+  h2 {
+    font-size: 220%;
+    font-weight: 800;
+    margin: 0;
+    padding: 5px 0px;
+  }
+  h3 {
+    margin: 0;
+    font-size: 150%;
+    font-weight: 300;
+    font-style: italic;
+    padding-top: 20px;
+  }
+  div.inner {
+    // background: ghostwhite;
+    padding: 40px 0 40px 7vw;
+  }
 }
 
 
+
+div.author-postpage {
+  position: relative;
+  padding: 60px 0;
+  margin: 2% 0 5% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    // border-top: 6px solid $theblack;
+    top: 0;
+    left: calc(20vw - 15px);
+  }
+  div.image {
+    width: 20%;
+    max-width: 150px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+    img {
+      overflow: hidden;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+    }
+  }
+  div.text {
+    width: 55%;
+    padding: 5px;
+    margin-left: 5%;
+    h3 {
+      margin: 0;
+      text-transform: uppercase;
+    }
+    h4 {
+      font-size: 95%;
+      font-weight: 400;
+    }
+  }
+}
+
 div.spinner  {
-  // background: red;
-  padding:70px 0;
+  padding: 70px 0;
   display: flex;
   width: 100%;
   align-items: center;

@@ -6,6 +6,9 @@ import Footer from '../molecules/Footer'
 import PageTitle from '../molecules/PageTitle'
 import {init,stopAnimation} from '../background/background.js'
 
+import {selectNav} from '../store/modules/actions'
+
+
 class Background extends Component {
   shouldComponentUpdate(nextProps) {
     return false;
@@ -19,6 +22,10 @@ class Background extends Component {
 class About extends Component {
   componentDidMount() {
     init()
+    // console.log("homepage", this.props.match)
+    if(this.props.data.selectedNav === ''){
+      this.props.dispatch(selectNav('about'))
+    }
   }
   componentWillUnmount() {
     stopAnimation()
@@ -33,7 +40,7 @@ class About extends Component {
       </div>,
       <div key='about-content' className='about-content'>
 
-      </div>
+      </div>,
       <Footer key='footer'/>,
     ]
   }

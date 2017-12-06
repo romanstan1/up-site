@@ -6,6 +6,7 @@
     "axios": "^0.17.1",
     "buttercms": "^1.1.0",
     "gsap": "^1.20.3",
+    "moment": "^2.19.3",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.1.2",
     "prop-types": "^15.6.0",
