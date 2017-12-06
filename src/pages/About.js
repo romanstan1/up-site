@@ -7,7 +7,14 @@ import PageTitle from '../molecules/PageTitle'
 import {init,stopAnimation} from '../background/background.js'
 import {selectNav} from '../store/modules/actions'
 import { Carousel } from 'react-responsive-carousel';
+import {BlogPost, LoadingSpinner, getCategoryColor} from './Thinking'
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
+import {loadBlogPosts} from '../store/modules/actions'
+import StrategyIcon from '../assets/icons-js/strategy'
+import MarketResIcon from '../assets/icons-js/market_research'
+import Butter from 'buttercms';
+
+const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
 
 const slideContent =  [
   {
@@ -15,7 +22,7 @@ const slideContent =  [
     by: 'Patt Mowell'
   },
   {
-    text: '"I only came in for a hair cut, but I ended up buying a website for 2 million pounds."',
+    text: '"I only came in for a hair cut, but I ended up buying a website for £2 million."',
     by: 'Matty P Dogg'
   },
   {
@@ -41,11 +48,8 @@ const SlideShow = ({content}) =>
     <div className='by'>{content.by}</div>
   </div>
 
-const Service = ({link, children}) =>
-  <div className='service'>
-    <object data={link} type="image/svg+xml"></object>
-    {children}
-  </div>
+const Service = ({children}) =>
+  <div className='service'>{children}</div>
 
 class Background extends Component {
   shouldComponentUpdate(nextProps) {
@@ -62,12 +66,22 @@ class About extends Component {
     if(this.props.data.selectedNav === ''){
       this.props.dispatch(selectNav('about'))
     }
+    if(!this.props.blogPosts.length) this.fetchSimilarityPosts()
   }
   componentWillUnmount() {
     stopAnimation()
   }
 
+  fetchSimilarityPosts = () =>{
+    butter.post.list({page: 1, page_size: 3}).then(response => {
+      this.props.dispatch(loadBlogPosts(response.data, true))
+    });
+  }
+
   render () {
+    const {blogPosts} = this.props
+    let posts = null
+    if(!!blogPosts && !!blogPosts) posts = blogPosts.filter((post, i) => i < 3)
     return [
       <div key='heading' className='about'>
         <Nav/>
@@ -88,15 +102,15 @@ class About extends Component {
           </Carousel>
         </div>
         <div className='about-services'>
-          <Service link={svgIcons[0]}>
-            <h2>Digital Development</h2>
+          <h2>Services</h2>
+          <Service>
+            <MarketResIcon/><h2>Digital Development</h2>
           </Service>
-          <Service link={svgIcons[1]}>
-            <h2>Digital Strategy</h2>
+          <Service>
+            <StrategyIcon/><h2>Digital Strategy</h2>
           </Service>
-
         </div>
-
+        <div className='three-posts'>{!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }</div>
       </div>,
       <Footer key='footer'/>,
     ]
@@ -104,5 +118,6 @@ class About extends Component {
 }
 
 export default connect(state => ({
-  data: state.data
+  data: state.data,
+  blogPosts: state.data.posts
 }))(About)

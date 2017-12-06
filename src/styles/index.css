@@ -174,81 +174,142 @@ div.filter-button {
     div.filter-button div:nth-of-type(2) {
       margin: 0 -2px; }
 
+div.blog-post {
+  position: relative;
+  margin: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+  flex-grow: 1;
+  width: 20%; }
+  div.blog-post div.inner {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; }
+    div.blog-post div.inner object {
+      width: 60%;
+      min-width: 110px;
+      max-height: 140px;
+      margin: 20px 0; }
+    div.blog-post div.inner h2 {
+      width: 100%;
+      line-height: 20px;
+      margin: 20px 0 0 0;
+      font-size: 120%;
+      text-transform: uppercase; }
+    div.blog-post div.inner h3 {
+      margin: 20px 0 0 0;
+      width: 100%;
+      font-size: 100%; }
+      div.blog-post div.inner h3.red {
+        color: #E91E63; }
+      div.blog-post div.inner h3.yellow {
+        color: #FFAB00; }
+      div.blog-post div.inner h3.green {
+        color: #00BFA5; }
+    div.blog-post div.inner h4 {
+      width: 100%;
+      display: block;
+      font-size: 95%;
+      font-weight: 400; }
+  div.blog-post.big {
+    width: 100%;
+    flex-grow: 3;
+    position: relative;
+    justify-content: flex-end; }
+    div.blog-post.big div.inner {
+      min-height: 400px;
+      margin-left: 50%;
+      width: 50%;
+      display: inline-flex;
+      justify-content: center;
+      padding-right: 30px;
+      align-items: center; }
+      div.blog-post.big div.inner object {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50%;
+        min-width: 110px;
+        max-height: 250px;
+        margin: 0; }
+  div.blog-post a.link {
+    display: block;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    opacity: 0.0; }
+    div.blog-post a.link:hover {
+      opacity: 0.1; }
+
 div.content {
   display: flex;
   flex-flow: row wrap;
   padding: 15px;
   margin: 20px 8%; }
-  div.content div.blog-post {
-    position: relative;
-    margin: 10px;
-    box-sizing: border-box;
-    padding: 20px;
-    flex-grow: 1;
-    width: 20%; }
-    div.content div.blog-post div.inner {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%; }
-      div.content div.blog-post div.inner object {
-        width: 60%;
-        min-width: 110px;
-        max-height: 140px;
-        margin: 20px 0; }
-      div.content div.blog-post div.inner h2 {
-        width: 100%;
-        line-height: 20px;
-        margin: 20px 0 0 0;
-        font-size: 120%;
-        text-transform: uppercase; }
-      div.content div.blog-post div.inner h3 {
-        margin: 20px 0 0 0;
-        width: 100%;
-        font-size: 100%; }
-        div.content div.blog-post div.inner h3.red {
-          color: #E91E63; }
-        div.content div.blog-post div.inner h3.yellow {
-          color: #FFAB00; }
-        div.content div.blog-post div.inner h3.green {
-          color: #00BFA5; }
-      div.content div.blog-post div.inner h4 {
-        width: 100%;
-        display: block;
-        font-size: 95%;
-        font-weight: 400; }
-    div.content div.blog-post.big {
-      width: 100%;
-      flex-grow: 3;
-      position: relative;
-      justify-content: flex-end; }
-      div.content div.blog-post.big div.inner {
-        min-height: 400px;
-        margin-left: 50%;
-        width: 50%;
-        display: inline-flex;
-        justify-content: center;
-        padding-right: 30px;
-        align-items: center; }
-        div.content div.blog-post.big div.inner object {
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 50%;
-          min-width: 110px;
-          max-height: 250px;
-          margin: 0; }
-    div.content div.blog-post a.link {
-      display: block;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-      position: absolute;
-      opacity: 0.0; }
-      div.content div.blog-post a.link:hover {
-        opacity: 0.1; }
+
+div.slideshow-wrapper {
+  background: black;
+  margin: 80px 0; }
+  div.slideshow-wrapper li.dot {
+    box-shadow: none; }
+  div.slideshow-wrapper > div {
+    height: 80vh; }
+    div.slideshow-wrapper > div > div.carousel {
+      height: 80vh; }
+      div.slideshow-wrapper > div > div.carousel li.slide {
+        height: 80vh; }
+        div.slideshow-wrapper > div > div.carousel li.slide div.slideshow {
+          height: 80vh;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex-wrap: wrap;
+          text-align: left; }
+          div.slideshow-wrapper > div > div.carousel li.slide div.slideshow img {
+            width: 100%;
+            background: display; }
+          div.slideshow-wrapper > div > div.carousel li.slide div.slideshow div.text {
+            margin-left: 20vw;
+            font-size: 220%;
+            font-weight: 300;
+            padding: 20px 0;
+            width: 60vw; }
+          div.slideshow-wrapper > div > div.carousel li.slide div.slideshow div.by {
+            margin-left: 20vw;
+            width: 80vw;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 130%; }
+
+div.join-us {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 3% 0;
+  padding: 40px 20vw; }
+  div.join-us > div {
+    display: inline-block;
+    width: 29vw; }
+    div.join-us > div * {
+      margin: 0; }
+    div.join-us > div h3 {
+      margin: 20px 0;
+      font-size: 220%;
+      font-weight: 300; }
+    div.join-us > div h4 {
+      margin: 20px 0;
+      font-size: 120%;
+      font-weight: 300; }
+    div.join-us > div a {
+      color: #2962ff;
+      text-decoration: underline; }
 
 div.about-content div.headings {
   margin: 2vh 0;
@@ -270,43 +331,43 @@ div.about-content div.partners {
     width: 18%;
     margin: 1% 0; }
 
-div.about-content div.slideshow-wrapper {
-  background: black;
-  margin: 80px 0; }
-  div.about-content div.slideshow-wrapper li.dot {
-    box-shadow: none; }
-  div.about-content div.slideshow-wrapper > div {
-    height: 80vh; }
-    div.about-content div.slideshow-wrapper > div > div.carousel {
-      height: 80vh; }
-      div.about-content div.slideshow-wrapper > div > div.carousel li.slide {
-        height: 80vh; }
-        div.about-content div.slideshow-wrapper > div > div.carousel li.slide div.slideshow {
-          height: 80vh;
-          color: white;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          flex-wrap: wrap;
-          text-align: left; }
-          div.about-content div.slideshow-wrapper > div > div.carousel li.slide div.slideshow div.text {
-            margin-left: 20vw;
-            font-size: 220%;
-            font-weight: 300;
-            padding: 20px 0;
-            width: 60vw; }
-          div.about-content div.slideshow-wrapper > div > div.carousel li.slide div.slideshow div.by {
-            margin-left: 20vw;
-            width: 80vw;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-size: 130%; }
-
 div.about-content div.about-services {
-  background: grey; }
-  div.about-content div.about-services div.service object {
-    width: 40px;
-    height: 40px; }
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative; }
+  div.about-content div.about-services > h2 {
+    font-size: 220%;
+    font-weight: 800;
+    width: 60%; }
+  div.about-content div.about-services div.service {
+    width: 40%;
+    margin: 0 10px;
+    position: relative;
+    display: flex; }
+    div.about-content div.about-services div.service svg {
+      width: 20%;
+      fill: #2962ff;
+      position: relative;
+      top: 0;
+      height: 100%;
+      min-width: 80px; }
+    div.about-content div.about-services div.service h2 {
+      align-self: flex-end;
+      position: relative;
+      font-size: 220%;
+      font-weight: 300;
+      width: 80%;
+      margin: 0;
+      padding: 10px 25px; }
+
+div.about-content div.three-posts {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 15px;
+  margin: calc(8% + 20px) 8% 20px 8%;
+  position: relative; }
 
 div.single-post {
   width: 100%;

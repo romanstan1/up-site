@@ -53,10 +53,8 @@ const FilterButton = ({filterType, state, handleClick}) => {
   return <div className={className} data-value={filterType} onClick={handleClick}>{filterType}</div>
 }
 
-
-
 class Thinking extends Component {
-
+  
   state = {
     filter: 'All',
     page: 1
