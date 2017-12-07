@@ -5,7 +5,6 @@ import Footer from '../molecules/Footer'
 import PageTitle from '../molecules/PageTitle'
 import { Carousel } from 'react-responsive-carousel';
 
-
 const slideContent = (ctx => {
   const keys = ctx.keys();
   return keys.map(ctx)

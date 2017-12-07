@@ -76,7 +76,7 @@ class Postpage extends Component {
         <Nav/>
           {!!singlePost?<CatHeading title={singlePost.categories[0].name} color={catColor}/>: null}
       </div>,
-      <div key='content' className='content'>
+      <div key='content' className='content postpage'>
         {
           !!singlePost?
           <span><SinglePost singlePost={singlePost}/><Author author={singlePost.author}/></span>

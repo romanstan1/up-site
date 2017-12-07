@@ -56,6 +56,11 @@ class Background extends Component {
   }
 }
 
+const servicePageText = {
+  digital_development: 'We use open source technology to launch, scale and manage enterprise, responsive digital services. We use open source technology to launch, scale and manage enterprise, responsive digital services.',
+  digital_strategry: 'We team up with brands to create meaningful digital services, combining the right tools to leverage data and technology to accelerate digital growth. We team up with brands to create meaningful digital services, combining the right tools to leverage data and technology to accelerate digital growth.'
+}
+
 class About extends Component {
   componentDidMount() {
     init()
@@ -97,7 +102,7 @@ class About extends Component {
             {slideContent.map((content,i) => <SlideShow key={i} content={content}/>)}
           </Carousel>
         </div>
-        <ServicesBlock title='Services'/>
+        <ServicesBlock text={servicePageText}/>
         <div className='three-posts'>{!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }</div>
       </div>,
       <Footer key='footer'/>,

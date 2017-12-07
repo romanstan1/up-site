@@ -36,10 +36,10 @@ export const getCategoryColor= (category) => {
 export const BlogPost = ({post,i}) => {
   const catColor = getCategoryColor(post.categories[0].name)
   return (
-    // <div className={i%4 === 0? 'blog-post big': 'blog-post small'}>
-    <div style={{borderLeft: `3px solid ${catColor}`}} className={i%4 === 0? 'blog-post big': 'blog-post small'}>
+    // <div style={{borderBottom: `3px solid ${catColor}`}} className={i%4 === 0? 'blog-post big': 'blog-post small'}>
+    <div className={i%4 === 0? 'blog-post big': 'blog-post small'}>
       <div className='inner'>
-        <SvgIcon link={post.featured_image}/>
+        <div className='svg-wrap'><SvgIcon link={post.featured_image}/></div>
         <h2>{post.title}</h2>
         <h3 style={{color:catColor}} >{post.categories[0].name}</h3>
         <h4>{post.summary.length > 120? post.summary.substring(0,120).concat('...') : post.summary }</h4>
@@ -95,12 +95,12 @@ class Thinking extends Component {
         <Nav/>
         <PageTitle heading='Thinking' subheading='Some thoughts, some ideas'/>
       </div>,
-      <div key='filter-buttons' className='filter-button'>
+      <div key='filter-buttons' className='filter-button thinking'>
         {['Strategy','Development','Innovation'].map((filterType, i) =>
           <FilterButton key={i} state={filter} handleClick={this.selectFilter} filterType={filterType}/>
         )}
       </div>,
-      <div key='content' className='content'>
+      <div key='content' className='content thinking'>
         {!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }
       </div>,
       <div key='load-more' className='filter-button load-more'>

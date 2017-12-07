@@ -1,6 +1,17 @@
 
-$theblue: rgba(41, 98, 255,1);
-$theblue0: rgba(41, 98, 255,0);
+// $theblue: rgba(41, 98, 255,1);
+// $theblue0: rgba(41, 98, 255,0);
+
+$theblue: rgba(57, 96, 239, 1); // new one     3960ef
+$theblue0: rgba(57, 96, 239, 0); // new one             // 5d79e2 over?
+
+$ghostwhite: #f8f8ff;
+
+// $thinkingBackground: #f8f8ff; // 101D42
+$thinkingBackground: #f6f9fc; // 101D42
+$thinkingPanels: white;
+
+$greyborder: #dce2ea;
 
 $theyellow: #FFAB00;
 $thegreen: #00BFA5;
@@ -80,16 +91,18 @@ div.nav {
         display: inline-block;
         text-transform: uppercase;
         margin: 0 -2px 5px 40px;
-        padding: 3px 1px;
-        border-bottom: 1px solid $theblue0;
+        padding: 3px 3px;
+        // background: $theblue;
+        border-bottom: 2px solid $theblue0;
         font-size: 76%;
-        font-weight: 300;
+        font-weight: 600;
         color:$stark;
         &:hover {
-          border-bottom: 1px solid $stark;
+          // opacity: 0.8;
+          border-bottom: 2px solid $stark;
         }
         &.active {
-          border-bottom: 1px solid $stark;
+          border-bottom: 2px solid $stark;
         }
       }
 
@@ -156,7 +169,7 @@ div.other {
 }
 
 footer {
-  margin-top: 20vh;
+  // margin-top: 20vh;
   height: 50vh;
   padding-bottom: 80px;
   background: $thegrey;
@@ -165,10 +178,12 @@ footer {
   font-size: 90%;
   position: relative;
   text-align: center;
+  // display: none;
   > div {
     top: 50%;
     transform: translateY(-50%);
-    margin: 20px 0;
+    margin: 0;
+    padding-top: 20px;
   }
     div.top-row {
       // padding: 40px;
@@ -214,22 +229,32 @@ footer {
 div.filter-button {
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 100%;
-  margin: 40px 0 0 10px;
+  align-content:flex-end;
+  // height: 100%;
+  height: 80px;
+  width: 100%;
+  background: $thinkingBackground;
   &.load-more {
-    margin: 20px 0 50px 0;
+    height: 150px;
+    margin: 0;
+    padding-bottom: 80px;
   }
   div{
+    box-shadow: 0 15px 35px rgba(50,50,93,.06), 0 5px 15px rgba(0,0,0,.04);
     text-align: center;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 72%;
-    padding: 6px 44px;
+    padding: 8px 48px;
     color: $theblue;
     line-height: 25px;
+    align-self: flex-end;
+    border-radius: 5px;
     border-collapse: collapse;
-    border: 2px solid $theblue;
+    background: $thinkingPanels;
+    height: 40px;
+    margin: 0 20px;
+    // border: 2px solid $theblue;
     cursor: pointer;
     &.active {
       color: $stark;
@@ -246,38 +271,57 @@ div.filter-button {
 }
 div.blog-post {
   position: relative;
+  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
   margin: 10px;
   box-sizing: border-box;
   padding: 20px;
+  border-radius: 5px;
   flex-grow: 1;
   width: 20%;
-  // background: ghostwhite;
+  background: $thinkingPanels;
   div.inner {
     display:inline-flex;
     // justify-content: start;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    object {
-      width: 60%;
-      min-width: 110px;
-      max-height: 140px;
+    padding-bottom: 20px;
+    div.svg-wrap {
+      // width: 100%;
+      width: 110px;
+      height: 110px;
       margin: 20px 0;
+      // padding: 25px;
+      // display: none;
+      border-radius: 50%;
+      background: $theblue;
+      overflow: hidden;
+      object {
+        padding: 15px;
+        margin: 0px;
+        background: $theblue;
+        fill: $theblue;
+        // fill: white;
+        width: 100%;
+        overflow: hidden;
+      }
     }
     h2 {
       width: 100%;
       line-height: 20px;
-      margin: 20px 0 0 0;
-      font-size: 120%;
+      margin: 10px 0 0 0;
+      font-size: 110%;
       text-transform: uppercase;
     }
     h3 {
+      position: absolute;
       margin: 20px 0 0 0;
-      width: 100%;
-      font-size: 100%;
-      &.red { color: $thered}
-      &.yellow { color: $theyellow}
-      &.green { color: $thegreen}
+      font-weight: 700;
+      font-size: 82%;
+      padding: 6px 44px;
+      line-height: 25px;
+      text-transform: uppercase;
+      bottom: 10px;
     }
     h4 {
       width: 100%;
@@ -292,15 +336,25 @@ div.blog-post {
     position: relative;
     justify-content:flex-end;
     div.inner {
-      object {
+      div.svg-wrap {
         position: absolute;
-        left: 0;
+        left: 25%;
         top: 50%;
-        transform: translateY(-50%);
-        width: 50%;
-        min-width: 110px;
-        max-height: 250px;
-        margin: 0;
+        transform: translate(-50%, -50%);
+        width: 220px;
+        height: 220px;
+        margin: 0px;
+        border-radius: 50%;
+        background: $theblue;
+        overflow: hidden;
+        object {
+          padding: 25px;
+          margin: 0px;
+          background: $theblue;
+          fill: $theblue;
+          width: 100%;
+          overflow: hidden;
+        }
       }
       min-height: 400px;
       margin-left: 50%;
@@ -309,6 +363,17 @@ div.blog-post {
       justify-content:center;
       padding-right: 30px;
       align-items: center;
+      h3 {
+        position: absolute;
+        margin: 20px 0 0 0;
+        font-weight: 700;
+        font-size: 82%;
+        padding: 0;
+        line-height: 25px;
+        text-transform: uppercase;
+        bottom: 32%;
+        left: 50%;
+      }
     }
   }
   a.link {
@@ -320,9 +385,10 @@ div.blog-post {
     bottom:0;
     position: absolute;
     opacity: 0.0;
+    border-radius: 5px;
     // background: red;
     &:hover {
-      opacity: 0.1;
+      opacity: 0.2;
     }
   }
 }
@@ -331,13 +397,22 @@ div.content {
   display: flex;
   // width: 100vw;
   flex-flow: row wrap;
-  padding: 15px;
-  margin: 20px 8%;
+  // margin: 20px 8%;
+  // padding: 15px 8%;
+  // background: $grey;
+  &.thinking {
+    padding: 15px 8%;
+    background: $thinkingBackground
+  }
+  &.postpage {
+    padding: 35px 0%;
+    margin: 20px 8%;
+  }
 }
 
 div.slideshow-wrapper {
   background: black;
-  margin: 80px 0;
+  margin: 0px 0 0 0;
   li.dot {
     box-shadow:none;
   }
@@ -379,34 +454,46 @@ div.slideshow-wrapper {
   }
 }
 
+
 div.join-us {
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  flex-wrap: wrap;
   position: relative;
-  margin: 3% 0;
-  padding: 40px 20vw;
+  width: 100%;
+  height: 360px;
   > div {
+    padding: 60px calc(4% + 20px) 30px calc(8% + 20px);
+    width: 50%;
+    top:0;
+    height: 100%;
     display: inline-block;
-    width: 29vw;
-    // background: grey;
+    position: absolute;
+    border-bottom: 3px solid $ghostwhite;
+    &:nth-of-type(1) {
+      left:0;
+      border-right: 3px solid $ghostwhite;
+    }
+    &:nth-of-type(2) {
+      right:0;
+      padding: 60px calc(4% + 20px) 30px calc(4% + 20px);
+    }
     * {
       margin: 0;
     }
     h3 {
-      margin: 20px 0;
       font-size: 220%;
       font-weight: 300;
+      margin:0;
+      margin-top: 20px;
+      padding: 0px 0;
     }
     h4 {
-      margin: 20px 0;
-      font-size: 120%;
+      font-size: 100%;
       font-weight: 300;
+      margin: 0px 0;
+      padding: 25px 0;
     }
     a {
       color: $theblue;
-      text-decoration: underline;
+      // text-decoration: underline;
     }
   }
 }
@@ -423,7 +510,7 @@ div.about-content {
     }
   }
   div.partners {
-    margin-top: 10px;
+    margin: 10px 0 100px 0px;
     display: flex;
     padding: 0px 20vw;
     flex-direction: row;
@@ -439,9 +526,10 @@ div.about-content {
   div.three-posts {
     display: flex;
     flex-flow: row wrap;
-    padding: 15px;
-    margin: calc(8% + 20px) 8% 20px 8%;
+    padding: 85px 8%;
     position: relative;
+    background: $thinkingBackground;
+
     // &:before {
     //   position: absolute;
     //   content: "";
@@ -455,49 +543,66 @@ div.about-content {
 
 
 div.services-block {
-  display: flex;
-  flex-direction: row;
-  justify-content:center;
-  flex-wrap: wrap;
   position: relative;
-  > h2 {
-    font-size: 220%;
-    font-weight: 800;
-    width: 60%;
-  }
+  // background: grey;
+  width: 100%;
+  height: 420px;
   div.service {
-    width: 40%;
-    margin: 0 10px;
-    position: relative;
-    display: flex;
-    // background: ghostwhite;
-    svg {
-      width: 20%;
-      fill: $theblue;
-      position: relative;
-      top:0;
-      height: 100%;
-      min-width: 80px;
+    padding: 60px calc(4% + 20px) 30px calc(8% + 20px);
+    // margin: 0 10px;
+    width: 50%;
+    top:0;
+    height: 100%;
+    display: inline-block;
+    // background: red;
+    position: absolute;
+    border-bottom: 3px solid $thinkingBackground;
+    &:nth-of-type(1) {
+      left:0;
+      border-right: 3px solid $thinkingBackground;
     }
-    span {
-      align-self: flex-end;
+    &:nth-of-type(2) {
+      right:0;
+      padding: 60px calc(4% + 20px) 30px calc(4% + 20px);
+    }
+    div.svg-wrap {
+      // width: 100%;
+      width: 85px;
+      height: 85px;
       position: relative;
-      display: block;
-      // padding: 10px 25px;
-      width: 80%;
-      margin: 0;
-      // background: grey;
+      margin: 5px;
+      // padding: 25px;
+      // display: none;
+      border-radius: 50%;
+      background: $theblue;
+        background: $ghostwhite;
+      overflow: hidden;
+      svg {
+        padding: 15px;
+        margin: 0px;
+        background: $theblue;
+        background: $ghostwhite;
+        fill: $theblue;
+        // fill: white;
+        width: 100%;
+        overflow: hidden;
+      }
+    }
+    div.text-wrap {
+      width: 100%;
       h2 {
+          // background: grey;
         font-size: 220%;
         font-weight: 300;
-        margin: 0;
-        padding: 0;
+        margin:0;
+        margin-top: 20px;
+        padding: 0px 0;
       }
       p {
         font-size: 100%;
         font-weight: 300;
-        margin: 10px 0;
-        padding: 0;
+        margin: 0px 0;
+        padding: 25px 0;
       }
     }
   }

@@ -43,15 +43,15 @@ div.nav {
       display: inline-block;
       text-transform: uppercase;
       margin: 0 -2px 5px 40px;
-      padding: 3px 1px;
-      border-bottom: 1px solid rgba(41, 98, 255, 0);
+      padding: 3px 3px;
+      border-bottom: 2px solid rgba(57, 96, 239, 0);
       font-size: 76%;
-      font-weight: 300;
+      font-weight: 600;
       color: #FFFEFE; }
       div.nav div.menu div a:hover {
-        border-bottom: 1px solid #FFFEFE; }
+        border-bottom: 2px solid #FFFEFE; }
       div.nav div.menu div a.active {
-        border-bottom: 1px solid #FFFEFE; }
+        border-bottom: 2px solid #FFFEFE; }
 
 div.titles {
   position: absolute;
@@ -74,7 +74,7 @@ canvas.scene {
 div.about {
   width: 100vw;
   height: 100vh;
-  background: #2962ff;
+  background: #3960ef;
   color: #FFFEFE; }
   div.about h2 {
     top: 45%; }
@@ -82,7 +82,7 @@ div.about {
 div.other {
   width: 100vw;
   height: 80vh;
-  background: #2962ff;
+  background: #3960ef;
   color: #FFFEFE;
   position: relative; }
   div.other.postpage {
@@ -104,7 +104,6 @@ div.other {
     color: black; }
 
 footer {
-  margin-top: 20vh;
   height: 50vh;
   padding-bottom: 80px;
   background: #303030;
@@ -116,7 +115,8 @@ footer {
   footer > div {
     top: 50%;
     transform: translateY(-50%);
-    margin: 20px 0; }
+    margin: 0;
+    padding-top: 20px; }
   footer div.top-row {
     position: relative;
     display: block; }
@@ -124,7 +124,7 @@ footer {
       display: inline-block;
       padding: 3px 1px;
       margin: 0 20px;
-      border-bottom: 1px solid rgba(41, 98, 255, 0);
+      border-bottom: 1px solid rgba(57, 96, 239, 0);
       font-size: 80%;
       font-weight: 300;
       color: white; }
@@ -149,64 +149,84 @@ footer {
 div.filter-button {
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 100%;
-  margin: 40px 0 0 10px; }
+  align-content: flex-end;
+  height: 80px;
+  width: 100%;
+  background: #f6f9fc; }
   div.filter-button.load-more {
-    margin: 20px 0 50px 0; }
+    height: 150px;
+    margin: 0;
+    padding-bottom: 80px; }
   div.filter-button div {
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.06), 0 5px 15px rgba(0, 0, 0, 0.04);
     text-align: center;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 72%;
-    padding: 6px 44px;
-    color: #2962ff;
+    padding: 8px 48px;
+    color: #3960ef;
     line-height: 25px;
+    align-self: flex-end;
+    border-radius: 5px;
     border-collapse: collapse;
-    border: 2px solid #2962ff;
+    background: white;
+    height: 40px;
+    margin: 0 20px;
     cursor: pointer; }
     div.filter-button div.active {
       color: #FFFEFE;
-      background: #2962ff; }
+      background: #3960ef; }
     div.filter-button div:hover {
       color: #FFFEFE;
-      background: #2962ff; }
+      background: #3960ef; }
     div.filter-button div:nth-of-type(2) {
       margin: 0 -2px; }
 
 div.blog-post {
   position: relative;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   margin: 10px;
   box-sizing: border-box;
   padding: 20px;
+  border-radius: 5px;
   flex-grow: 1;
-  width: 20%; }
+  width: 20%;
+  background: white; }
   div.blog-post div.inner {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; }
-    div.blog-post div.inner object {
-      width: 60%;
-      min-width: 110px;
-      max-height: 140px;
-      margin: 20px 0; }
+    width: 100%;
+    padding-bottom: 20px; }
+    div.blog-post div.inner div.svg-wrap {
+      width: 110px;
+      height: 110px;
+      margin: 20px 0;
+      border-radius: 50%;
+      background: #3960ef;
+      overflow: hidden; }
+      div.blog-post div.inner div.svg-wrap object {
+        padding: 15px;
+        margin: 0px;
+        background: #3960ef;
+        fill: #3960ef;
+        width: 100%;
+        overflow: hidden; }
     div.blog-post div.inner h2 {
       width: 100%;
       line-height: 20px;
-      margin: 20px 0 0 0;
-      font-size: 120%;
+      margin: 10px 0 0 0;
+      font-size: 110%;
       text-transform: uppercase; }
     div.blog-post div.inner h3 {
+      position: absolute;
       margin: 20px 0 0 0;
-      width: 100%;
-      font-size: 100%; }
-      div.blog-post div.inner h3.red {
-        color: #E91E63; }
-      div.blog-post div.inner h3.yellow {
-        color: #FFAB00; }
-      div.blog-post div.inner h3.green {
-        color: #00BFA5; }
+      font-weight: 700;
+      font-size: 82%;
+      padding: 6px 44px;
+      line-height: 25px;
+      text-transform: uppercase;
+      bottom: 10px; }
     div.blog-post div.inner h4 {
       width: 100%;
       display: block;
@@ -225,15 +245,34 @@ div.blog-post {
       justify-content: center;
       padding-right: 30px;
       align-items: center; }
-      div.blog-post.big div.inner object {
+      div.blog-post.big div.inner div.svg-wrap {
         position: absolute;
-        left: 0;
+        left: 25%;
         top: 50%;
-        transform: translateY(-50%);
-        width: 50%;
-        min-width: 110px;
-        max-height: 250px;
-        margin: 0; }
+        transform: translate(-50%, -50%);
+        width: 220px;
+        height: 220px;
+        margin: 0px;
+        border-radius: 50%;
+        background: #3960ef;
+        overflow: hidden; }
+        div.blog-post.big div.inner div.svg-wrap object {
+          padding: 25px;
+          margin: 0px;
+          background: #3960ef;
+          fill: #3960ef;
+          width: 100%;
+          overflow: hidden; }
+      div.blog-post.big div.inner h3 {
+        position: absolute;
+        margin: 20px 0 0 0;
+        font-weight: 700;
+        font-size: 82%;
+        padding: 0;
+        line-height: 25px;
+        text-transform: uppercase;
+        bottom: 32%;
+        left: 50%; }
   div.blog-post a.link {
     display: block;
     top: 0;
@@ -241,19 +280,24 @@ div.blog-post {
     left: 0;
     bottom: 0;
     position: absolute;
-    opacity: 0.0; }
+    opacity: 0.0;
+    border-radius: 5px; }
     div.blog-post a.link:hover {
-      opacity: 0.1; }
+      opacity: 0.2; }
 
 div.content {
   display: flex;
-  flex-flow: row wrap;
-  padding: 15px;
-  margin: 20px 8%; }
+  flex-flow: row wrap; }
+  div.content.thinking {
+    padding: 15px 8%;
+    background: #f6f9fc; }
+  div.content.postpage {
+    padding: 35px 0%;
+    margin: 20px 8%; }
 
 div.slideshow-wrapper {
   background: black;
-  margin: 80px 0; }
+  margin: 0px 0 0 0; }
   div.slideshow-wrapper li.dot {
     box-shadow: none; }
   div.slideshow-wrapper > div {
@@ -287,29 +331,38 @@ div.slideshow-wrapper {
             font-size: 130%; }
 
 div.join-us {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
   position: relative;
-  margin: 3% 0;
-  padding: 40px 20vw; }
+  width: 100%;
+  height: 360px; }
   div.join-us > div {
+    padding: 60px calc(4% + 20px) 30px calc(8% + 20px);
+    width: 50%;
+    top: 0;
+    height: 100%;
     display: inline-block;
-    width: 29vw; }
+    position: absolute;
+    border-bottom: 3px solid #f8f8ff; }
+    div.join-us > div:nth-of-type(1) {
+      left: 0;
+      border-right: 3px solid #f8f8ff; }
+    div.join-us > div:nth-of-type(2) {
+      right: 0;
+      padding: 60px calc(4% + 20px) 30px calc(4% + 20px); }
     div.join-us > div * {
       margin: 0; }
     div.join-us > div h3 {
-      margin: 20px 0;
       font-size: 220%;
-      font-weight: 300; }
+      font-weight: 300;
+      margin: 0;
+      margin-top: 20px;
+      padding: 0px 0; }
     div.join-us > div h4 {
-      margin: 20px 0;
-      font-size: 120%;
-      font-weight: 300; }
+      font-size: 100%;
+      font-weight: 300;
+      margin: 0px 0;
+      padding: 25px 0; }
     div.join-us > div a {
-      color: #2962ff;
-      text-decoration: underline; }
+      color: #3960ef; }
 
 div.about-content div.headings {
   margin: 2vh 0;
@@ -321,7 +374,7 @@ div.about-content div.headings {
     padding: 15px 0; }
 
 div.about-content div.partners {
-  margin-top: 10px;
+  margin: 10px 0 100px 0px;
   display: flex;
   padding: 0px 20vw;
   flex-direction: row;
@@ -334,48 +387,58 @@ div.about-content div.partners {
 div.about-content div.three-posts {
   display: flex;
   flex-flow: row wrap;
-  padding: 15px;
-  margin: calc(8% + 20px) 8% 20px 8%;
-  position: relative; }
+  padding: 85px 8%;
+  position: relative;
+  background: #f6f9fc; }
 
 div.services-block {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  position: relative; }
-  div.services-block > h2 {
-    font-size: 220%;
-    font-weight: 800;
-    width: 60%; }
+  position: relative;
+  width: 100%;
+  height: 420px; }
   div.services-block div.service {
-    width: 40%;
-    margin: 0 10px;
-    position: relative;
-    display: flex; }
-    div.services-block div.service svg {
-      width: 20%;
-      fill: #2962ff;
+    padding: 60px calc(4% + 20px) 30px calc(8% + 20px);
+    width: 50%;
+    top: 0;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    border-bottom: 3px solid #f6f9fc; }
+    div.services-block div.service:nth-of-type(1) {
+      left: 0;
+      border-right: 3px solid #f6f9fc; }
+    div.services-block div.service:nth-of-type(2) {
+      right: 0;
+      padding: 60px calc(4% + 20px) 30px calc(4% + 20px); }
+    div.services-block div.service div.svg-wrap {
+      width: 85px;
+      height: 85px;
       position: relative;
-      top: 0;
-      height: 100%;
-      min-width: 80px; }
-    div.services-block div.service span {
-      align-self: flex-end;
-      position: relative;
-      display: block;
-      width: 80%;
-      margin: 0; }
-      div.services-block div.service span h2 {
+      margin: 5px;
+      border-radius: 50%;
+      background: #3960ef;
+      background: #f8f8ff;
+      overflow: hidden; }
+      div.services-block div.service div.svg-wrap svg {
+        padding: 15px;
+        margin: 0px;
+        background: #3960ef;
+        background: #f8f8ff;
+        fill: #3960ef;
+        width: 100%;
+        overflow: hidden; }
+    div.services-block div.service div.text-wrap {
+      width: 100%; }
+      div.services-block div.service div.text-wrap h2 {
         font-size: 220%;
         font-weight: 300;
         margin: 0;
-        padding: 0; }
-      div.services-block div.service span p {
+        margin-top: 20px;
+        padding: 0px 0; }
+      div.services-block div.service div.text-wrap p {
         font-size: 100%;
         font-weight: 300;
-        margin: 10px 0;
-        padding: 0; }
+        margin: 0px 0;
+        padding: 25px 0; }
 
 div.single-post {
   width: 100%;
@@ -443,7 +506,7 @@ div.author-postpage {
       margin: 12px 0; }
     div.author-postpage div.text a {
       font-size: 85%;
-      color: #2962ff; }
+      color: #3960ef; }
 
 div.spinner {
   padding: 70px 0;
