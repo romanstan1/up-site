@@ -248,8 +248,8 @@ div.blog-post {
 div.content {
   display: flex;
   flex-flow: row wrap;
-  padding: 15px 0;
-  margin: 20px 8vw; }
+  padding: 15px;
+  margin: 20px 8%; }
 
 div.slideshow-wrapper {
   background: black;
@@ -349,11 +349,10 @@ div.services-block {
     font-weight: 800;
     width: 60%; }
   div.services-block div.service {
-    width: 50%;
-    margin: 0;
+    width: 40%;
+    margin: 0 10px;
     position: relative;
-    display: flex;
-    background: ghostwhite; }
+    display: flex; }
     div.services-block div.service svg {
       width: 20%;
       fill: #2962ff;
@@ -366,8 +365,7 @@ div.services-block {
       position: relative;
       display: block;
       width: 80%;
-      margin: 0;
-      background: grey; }
+      margin: 0; }
       div.services-block div.service span h2 {
         font-size: 220%;
         font-weight: 300;

@@ -36,6 +36,7 @@ export const getCategoryColor= (category) => {
 export const BlogPost = ({post,i}) => {
   const catColor = getCategoryColor(post.categories[0].name)
   return (
+    // <div className={i%4 === 0? 'blog-post big': 'blog-post small'}>
     <div style={{borderLeft: `3px solid ${catColor}`}} className={i%4 === 0? 'blog-post big': 'blog-post small'}>
       <div className='inner'>
         <SvgIcon link={post.featured_image}/>
@@ -54,7 +55,7 @@ const FilterButton = ({filterType, state, handleClick}) => {
 }
 
 class Thinking extends Component {
-  
+
   state = {
     filter: 'All',
     page: 1
