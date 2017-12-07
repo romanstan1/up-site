@@ -86,6 +86,7 @@ div.nav {
         font-weight: 300;
         color:$stark;
         &:hover {
+          // font-weight: 800;
           border-bottom: 1px solid $stark;
         }
         &.active {
@@ -331,8 +332,8 @@ div.content {
   display: flex;
   // width: 100vw;
   flex-flow: row wrap;
-  padding: 15px;
-  margin: 20px 8%;
+  padding: 15px 0;
+  margin: 20px 8vw;
 }
 
 div.slideshow-wrapper {
@@ -436,41 +437,6 @@ div.about-content {
       margin: 1% 0;
     }
   }
-  div.about-services {
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-    flex-wrap: wrap;
-    position: relative;
-    > h2 {
-      font-size: 220%;
-      font-weight: 800;
-      width: 60%;
-    }
-    div.service {
-      width: 40%;
-      margin: 0 10px;
-      position: relative;
-      display: flex;
-      svg {
-        width: 20%;
-        fill: $theblue;
-        position: relative;
-        top:0;
-        height: 100%;
-        min-width: 80px;
-      }
-      h2 {
-        align-self: flex-end;
-        position: relative;
-        font-size: 220%;
-        font-weight: 300;
-        width: 80%;
-        margin: 0;
-        padding: 10px 25px;
-      }
-    }
-  }
   div.three-posts {
     display: flex;
     flex-flow: row wrap;
@@ -485,6 +451,56 @@ div.about-content {
     //   border-top: 6px solid $theblack;
     //   top: 0px;
     // }
+  }
+}
+
+
+div.services-block {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  flex-wrap: wrap;
+  position: relative;
+  > h2 {
+    font-size: 220%;
+    font-weight: 800;
+    width: 60%;
+  }
+  div.service {
+    width: 50%;
+    margin: 0;
+    position: relative;
+    display: flex;
+    background: ghostwhite;
+    svg {
+      width: 20%;
+      fill: $theblue;
+      position: relative;
+      top:0;
+      height: 100%;
+      min-width: 80px;
+    }
+    span {
+      align-self: flex-end;
+      position: relative;
+      display: block;
+      // padding: 10px 25px;
+      width: 80%;
+      margin: 0;
+      background: grey;
+      h2 {
+        font-size: 220%;
+        font-weight: 300;
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        font-size: 100%;
+        font-weight: 300;
+        margin: 10px 0;
+        padding: 0;
+      }
+    }
   }
 }
 

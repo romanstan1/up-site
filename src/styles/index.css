@@ -248,8 +248,8 @@ div.blog-post {
 div.content {
   display: flex;
   flex-flow: row wrap;
-  padding: 15px;
-  margin: 20px 8%; }
+  padding: 15px 0;
+  margin: 20px 8vw; }
 
 div.slideshow-wrapper {
   background: black;
@@ -331,43 +331,53 @@ div.about-content div.partners {
     width: 18%;
     margin: 1% 0; }
 
-div.about-content div.about-services {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  position: relative; }
-  div.about-content div.about-services > h2 {
-    font-size: 220%;
-    font-weight: 800;
-    width: 60%; }
-  div.about-content div.about-services div.service {
-    width: 40%;
-    margin: 0 10px;
-    position: relative;
-    display: flex; }
-    div.about-content div.about-services div.service svg {
-      width: 20%;
-      fill: #2962ff;
-      position: relative;
-      top: 0;
-      height: 100%;
-      min-width: 80px; }
-    div.about-content div.about-services div.service h2 {
-      align-self: flex-end;
-      position: relative;
-      font-size: 220%;
-      font-weight: 300;
-      width: 80%;
-      margin: 0;
-      padding: 10px 25px; }
-
 div.about-content div.three-posts {
   display: flex;
   flex-flow: row wrap;
   padding: 15px;
   margin: calc(8% + 20px) 8% 20px 8%;
   position: relative; }
+
+div.services-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative; }
+  div.services-block > h2 {
+    font-size: 220%;
+    font-weight: 800;
+    width: 60%; }
+  div.services-block div.service {
+    width: 50%;
+    margin: 0;
+    position: relative;
+    display: flex;
+    background: ghostwhite; }
+    div.services-block div.service svg {
+      width: 20%;
+      fill: #2962ff;
+      position: relative;
+      top: 0;
+      height: 100%;
+      min-width: 80px; }
+    div.services-block div.service span {
+      align-self: flex-end;
+      position: relative;
+      display: block;
+      width: 80%;
+      margin: 0;
+      background: grey; }
+      div.services-block div.service span h2 {
+        font-size: 220%;
+        font-weight: 300;
+        margin: 0;
+        padding: 0; }
+      div.services-block div.service span p {
+        font-size: 100%;
+        font-weight: 300;
+        margin: 10px 0;
+        padding: 0; }
 
 div.single-post {
   width: 100%;

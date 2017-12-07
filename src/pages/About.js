@@ -10,8 +10,7 @@ import { Carousel } from 'react-responsive-carousel';
 import {BlogPost, LoadingSpinner, getCategoryColor} from './Thinking'
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
 import {loadBlogPosts} from '../store/modules/actions'
-import StrategyIcon from '../assets/icons-js/strategy'
-import MarketResIcon from '../assets/icons-js/market_research'
+import ServicesBlock from '../molecules/ServicesBlock'
 import Butter from 'buttercms';
 
 const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
@@ -47,9 +46,6 @@ const SlideShow = ({content}) =>
     <div className='text'>{content.text}</div>
     <div className='by'>{content.by}</div>
   </div>
-
-const Service = ({children}) =>
-  <div className='service'>{children}</div>
 
 class Background extends Component {
   shouldComponentUpdate(nextProps) {
@@ -101,15 +97,7 @@ class About extends Component {
             {slideContent.map((content,i) => <SlideShow key={i} content={content}/>)}
           </Carousel>
         </div>
-        <div className='about-services'>
-          <h2>Services</h2>
-          <Service>
-            <MarketResIcon/><h2>Digital Development</h2>
-          </Service>
-          <Service>
-            <StrategyIcon/><h2>Digital Strategy</h2>
-          </Service>
-        </div>
+        <ServicesBlock title='Services'/>
         <div className='three-posts'>{!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }</div>
       </div>,
       <Footer key='footer'/>,
