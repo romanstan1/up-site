@@ -282,16 +282,16 @@ div.blog-post {
   flex-grow: 1;
   width: 20%;
   background: $thinkingPanels;
-  &::before {
-    content:'';
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 100px;
-    background: #f6f9fc;
-  }
+  // &::before {
+  //   content:'';
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   left: 0;
+  //   height: 100px;
+  //   background: #f6f9fc;
+  // }
   div.inner {
     display:inline-flex;
     flex-direction: column;
