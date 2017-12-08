@@ -91,7 +91,7 @@ class About extends Component {
       </div>,
       <div key='about-content' className='about-content'>
         <div className='headings'>
-          <p>Independant. Global. Two decades of digital solutions.</p>
+          <p>We use data and technology to uncover digital opportunities and create unfair advantages that accelerate digital growth.</p>
           <p>These guys like us.</p>
         </div>
         <div className='partners'>

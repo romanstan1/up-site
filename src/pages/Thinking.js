@@ -39,7 +39,7 @@ export const BlogPost = ({post,i}) => {
     // <div style={{borderBottom: `3px solid ${catColor}`}} className={i%4 === 0? 'blog-post big': 'blog-post small'}>
     <div className={i%4 === 0? 'blog-post big': 'blog-post small'}>
       <div className='inner'>
-        <div className='svg-wrap'><SvgIcon link={post.featured_image}/></div>
+        <div style={{background:catColor}} className='svg-wrap'><SvgIcon link={post.featured_image}/></div>
         <h2>{post.title}</h2>
         <h3 style={{color:catColor}} >{post.categories[0].name}</h3>
         <h4>{post.summary.length > 120? post.summary.substring(0,120).concat('...') : post.summary }</h4>

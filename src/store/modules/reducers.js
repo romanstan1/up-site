@@ -1,10 +1,13 @@
 
 
+
+
+
+
 const initialState = {
   selectedNav: '',
   posts: []
 }
-
 
 export default (state=initialState, action)=>{
   switch(action.type){

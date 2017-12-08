@@ -1,14 +1,17 @@
 
-// $theblue: rgba(41, 98, 255,1);
-// $theblue0: rgba(41, 98, 255,0);
+$theblue: rgba(41, 98, 255,1);
+$theblue0: rgba(41, 98, 255,0);
 
-$theblue: rgba(57, 96, 239, 1); // new one     3960ef
-$theblue0: rgba(57, 96, 239, 0); // new one             // 5d79e2 over?
+// $theblue: rgba(57, 96, 239, 1); // new one     3960ef
+// $theblue0: rgba(57, 96, 239, 0); // new one             // 5d79e2 over?
 
 $ghostwhite: #f8f8ff;
 
+
+$newgrey: #525f7f;
 // $thinkingBackground: #f8f8ff; // 101D42
 $thinkingBackground: #f6f9fc; // 101D42
+$thinkingBackground: #e6ebf1; // 101D42
 $thinkingPanels: white;
 
 $greyborder: #dce2ea;
@@ -249,7 +252,7 @@ div.filter-button {
     color: $theblue;
     line-height: 25px;
     align-self: flex-end;
-    border-radius: 5px;
+    // border-radius: 5px;
     border-collapse: collapse;
     background: $thinkingPanels;
     height: 40px;
@@ -271,37 +274,41 @@ div.filter-button {
 }
 div.blog-post {
   position: relative;
-  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+  box-shadow: 0 15px 35px rgba(50,50,93,.05), 0 5px 15px rgba(0,0,0,.07);
   margin: 10px;
   box-sizing: border-box;
   padding: 20px;
-  border-radius: 5px;
+  // border-radius: 5px;
   flex-grow: 1;
   width: 20%;
   background: $thinkingPanels;
+  &::before {
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    background: #f6f9fc;
+  }
   div.inner {
     display:inline-flex;
-    // justify-content: start;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding-bottom: 20px;
     div.svg-wrap {
-      // width: 100%;
       width: 110px;
       height: 110px;
       margin: 20px 0;
-      // padding: 25px;
-      // display: none;
       border-radius: 50%;
-      background: $theblue;
+      z-index: 10;
       overflow: hidden;
       object {
-        padding: 15px;
+        padding: 17px;
         margin: 0px;
-        background: $theblue;
         fill: $theblue;
-        // fill: white;
         width: 100%;
         overflow: hidden;
       }
@@ -310,8 +317,10 @@ div.blog-post {
       width: 100%;
       line-height: 20px;
       margin: 10px 0 0 0;
-      font-size: 110%;
+      font-size: 100%;
       text-transform: uppercase;
+      color: $newgrey;
+      color: #32325d;
     }
     h3 {
       position: absolute;
@@ -326,8 +335,9 @@ div.blog-post {
     h4 {
       width: 100%;
       display: block;
-      font-size: 95%;
+      font-size: 93%;
       font-weight: 400;
+      color: $newgrey;
     }
   }
   &.big {
@@ -335,6 +345,9 @@ div.blog-post {
     flex-grow: 3;
     position: relative;
     justify-content:flex-end;
+    &::before {
+      display: none;
+    }
     div.inner {
       div.svg-wrap {
         position: absolute;
@@ -345,12 +358,11 @@ div.blog-post {
         height: 220px;
         margin: 0px;
         border-radius: 50%;
-        background: $theblue;
         overflow: hidden;
+        // opacity: 0.4;
         object {
-          padding: 25px;
+          padding: 35px;
           margin: 0px;
-          background: $theblue;
           fill: $theblue;
           width: 100%;
           overflow: hidden;
@@ -378,17 +390,34 @@ div.blog-post {
   }
   a.link {
     display: block;
-    // display: none;
+    // display:hidden;
+    z-index: 100;
     top:0;
     right:0;
     left:0;
     bottom:0;
     position: absolute;
     opacity: 0.0;
-    border-radius: 5px;
+    transition: 0.3s ease;
+    // border-radius: 5px;
     // background: red;
+    // mix-blend-mode: difference;
+    &::before {
+      opacity: 0.0;
+      content:'';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: calc( 100% - 100px);
+      background: red;
+    }
     &:hover {
-      opacity: 0.2;
+      opacity: 0.3;
+      // &::before {
+      //   opacity: 1;
+      // }
     }
   }
 }
@@ -507,6 +536,7 @@ div.about-content {
       font-weight: 300;
       margin: 15px 0;
       padding: 15px 0;
+      line-height: 160%;
     }
   }
   div.partners {
@@ -719,7 +749,42 @@ div.spinner  {
       colors ($duration*4) ease-in-out infinite;
     }
   }
+}
 
+div.map-block {
+  display: flex;
+  justify-content: center;
+  padding: 4% 8vw;
+  background: white;
+  background: $ghostwhite;
+  div.up-map {
+    box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);
+    margin: 20px;
+    height: 250px;
+    width: 30%;
+    div.text {
+      box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.1);
+      background: white;
+      height: 170px;
+      padding: 25px;
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      h2 {
+        text-transform: uppercase;
+        padding-bottom: 15px;
+      }
+      p {
+        font-size: 90%;
+        padding-bottom: 15px;
+      }
+      a {
+        display: block;
+        font-size: 90%;
+      }
+    }
+  }
 }
 
 @keyframes rotator {

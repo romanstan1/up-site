@@ -44,7 +44,7 @@ div.nav {
       text-transform: uppercase;
       margin: 0 -2px 5px 40px;
       padding: 3px 3px;
-      border-bottom: 2px solid rgba(57, 96, 239, 0);
+      border-bottom: 2px solid rgba(41, 98, 255, 0);
       font-size: 76%;
       font-weight: 600;
       color: #FFFEFE; }
@@ -74,7 +74,7 @@ canvas.scene {
 div.about {
   width: 100vw;
   height: 100vh;
-  background: #3960ef;
+  background: #2962ff;
   color: #FFFEFE; }
   div.about h2 {
     top: 45%; }
@@ -82,7 +82,7 @@ div.about {
 div.other {
   width: 100vw;
   height: 80vh;
-  background: #3960ef;
+  background: #2962ff;
   color: #FFFEFE;
   position: relative; }
   div.other.postpage {
@@ -124,7 +124,7 @@ footer {
       display: inline-block;
       padding: 3px 1px;
       margin: 0 20px;
-      border-bottom: 1px solid rgba(57, 96, 239, 0);
+      border-bottom: 1px solid rgba(41, 98, 255, 0);
       font-size: 80%;
       font-weight: 300;
       color: white; }
@@ -152,7 +152,7 @@ div.filter-button {
   align-content: flex-end;
   height: 80px;
   width: 100%;
-  background: #f6f9fc; }
+  background: #e6ebf1; }
   div.filter-button.load-more {
     height: 150px;
     margin: 0;
@@ -164,10 +164,9 @@ div.filter-button {
     font-weight: 700;
     font-size: 72%;
     padding: 8px 48px;
-    color: #3960ef;
+    color: #2962ff;
     line-height: 25px;
     align-self: flex-end;
-    border-radius: 5px;
     border-collapse: collapse;
     background: white;
     height: 40px;
@@ -175,23 +174,31 @@ div.filter-button {
     cursor: pointer; }
     div.filter-button div.active {
       color: #FFFEFE;
-      background: #3960ef; }
+      background: #2962ff; }
     div.filter-button div:hover {
       color: #FFFEFE;
-      background: #3960ef; }
+      background: #2962ff; }
     div.filter-button div:nth-of-type(2) {
       margin: 0 -2px; }
 
 div.blog-post {
   position: relative;
-  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.05), 0 5px 15px rgba(0, 0, 0, 0.07);
   margin: 10px;
   box-sizing: border-box;
   padding: 20px;
-  border-radius: 5px;
   flex-grow: 1;
   width: 20%;
   background: white; }
+  div.blog-post::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100px;
+    background: #f6f9fc; }
   div.blog-post div.inner {
     display: inline-flex;
     flex-direction: column;
@@ -203,21 +210,22 @@ div.blog-post {
       height: 110px;
       margin: 20px 0;
       border-radius: 50%;
-      background: #3960ef;
+      z-index: 10;
       overflow: hidden; }
       div.blog-post div.inner div.svg-wrap object {
-        padding: 15px;
+        padding: 17px;
         margin: 0px;
-        background: #3960ef;
-        fill: #3960ef;
+        fill: #2962ff;
         width: 100%;
         overflow: hidden; }
     div.blog-post div.inner h2 {
       width: 100%;
       line-height: 20px;
       margin: 10px 0 0 0;
-      font-size: 110%;
-      text-transform: uppercase; }
+      font-size: 100%;
+      text-transform: uppercase;
+      color: #525f7f;
+      color: #32325d; }
     div.blog-post div.inner h3 {
       position: absolute;
       margin: 20px 0 0 0;
@@ -230,13 +238,16 @@ div.blog-post {
     div.blog-post div.inner h4 {
       width: 100%;
       display: block;
-      font-size: 95%;
-      font-weight: 400; }
+      font-size: 93%;
+      font-weight: 400;
+      color: #525f7f; }
   div.blog-post.big {
     width: 100%;
     flex-grow: 3;
     position: relative;
     justify-content: flex-end; }
+    div.blog-post.big::before {
+      display: none; }
     div.blog-post.big div.inner {
       min-height: 400px;
       margin-left: 50%;
@@ -254,13 +265,11 @@ div.blog-post {
         height: 220px;
         margin: 0px;
         border-radius: 50%;
-        background: #3960ef;
         overflow: hidden; }
         div.blog-post.big div.inner div.svg-wrap object {
-          padding: 25px;
+          padding: 35px;
           margin: 0px;
-          background: #3960ef;
-          fill: #3960ef;
+          fill: #2962ff;
           width: 100%;
           overflow: hidden; }
       div.blog-post.big div.inner h3 {
@@ -275,22 +284,33 @@ div.blog-post {
         left: 50%; }
   div.blog-post a.link {
     display: block;
+    z-index: 100;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     position: absolute;
     opacity: 0.0;
-    border-radius: 5px; }
+    transition: 0.3s ease; }
+    div.blog-post a.link::before {
+      opacity: 0.0;
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: calc( 100% - 100px);
+      background: red; }
     div.blog-post a.link:hover {
-      opacity: 0.2; }
+      opacity: 0.3; }
 
 div.content {
   display: flex;
   flex-flow: row wrap; }
   div.content.thinking {
     padding: 15px 8%;
-    background: #f6f9fc; }
+    background: #e6ebf1; }
   div.content.postpage {
     padding: 35px 0%;
     margin: 20px 8%; }
@@ -362,7 +382,7 @@ div.join-us {
       margin: 0px 0;
       padding: 25px 0; }
     div.join-us > div a {
-      color: #3960ef; }
+      color: #2962ff; }
 
 div.about-content div.headings {
   margin: 2vh 0;
@@ -371,7 +391,8 @@ div.about-content div.headings {
     font-size: 220%;
     font-weight: 300;
     margin: 15px 0;
-    padding: 15px 0; }
+    padding: 15px 0;
+    line-height: 160%; }
 
 div.about-content div.partners {
   margin: 10px 0 100px 0px;
@@ -389,7 +410,7 @@ div.about-content div.three-posts {
   flex-flow: row wrap;
   padding: 85px 8%;
   position: relative;
-  background: #f6f9fc; }
+  background: #e6ebf1; }
 
 div.services-block {
   position: relative;
@@ -402,10 +423,10 @@ div.services-block {
     height: 100%;
     display: inline-block;
     position: absolute;
-    border-bottom: 3px solid #f6f9fc; }
+    border-bottom: 3px solid #e6ebf1; }
     div.services-block div.service:nth-of-type(1) {
       left: 0;
-      border-right: 3px solid #f6f9fc; }
+      border-right: 3px solid #e6ebf1; }
     div.services-block div.service:nth-of-type(2) {
       right: 0;
       padding: 60px calc(4% + 20px) 30px calc(4% + 20px); }
@@ -415,15 +436,15 @@ div.services-block {
       position: relative;
       margin: 5px;
       border-radius: 50%;
-      background: #3960ef;
+      background: #2962ff;
       background: #f8f8ff;
       overflow: hidden; }
       div.services-block div.service div.svg-wrap svg {
         padding: 15px;
         margin: 0px;
-        background: #3960ef;
+        background: #2962ff;
         background: #f8f8ff;
-        fill: #3960ef;
+        fill: #2962ff;
         width: 100%;
         overflow: hidden; }
     div.services-block div.service div.text-wrap {
@@ -506,7 +527,7 @@ div.author-postpage {
       margin: 12px 0; }
     div.author-postpage div.text a {
       font-size: 85%;
-      color: #3960ef; }
+      color: #2962ff; }
 
 div.spinner {
   padding: 70px 0;
@@ -527,6 +548,35 @@ div.spinner {
       stroke-dashoffset: 0;
       transform-origin: center;
       animation: dash 2s ease-in-out infinite, colors 8s ease-in-out infinite; }
+
+div.map-block {
+  display: flex;
+  justify-content: center;
+  padding: 4% 8vw;
+  background: white;
+  background: #f8f8ff; }
+  div.map-block div.up-map {
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    height: 250px;
+    width: 30%; }
+    div.map-block div.up-map div.text {
+      box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.1);
+      background: white;
+      height: 170px;
+      padding: 25px; }
+      div.map-block div.up-map div.text * {
+        margin: 0;
+        padding: 0; }
+      div.map-block div.up-map div.text h2 {
+        text-transform: uppercase;
+        padding-bottom: 15px; }
+      div.map-block div.up-map div.text p {
+        font-size: 90%;
+        padding-bottom: 15px; }
+      div.map-block div.up-map div.text a {
+        display: block;
+        font-size: 90%; }
 
 @keyframes rotator {
   0% {
