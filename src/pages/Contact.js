@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+import {Link} from 'react-router-dom'
+
 import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'
 import PageTitle from '../molecules/PageTitle'
@@ -44,6 +46,7 @@ const UPMap = ({latLng, location, address, email, tel}) =>
   </div>
 </div>
 
+
 export default class Contact extends Component {
 
   render () {
@@ -58,8 +61,7 @@ export default class Contact extends Component {
           <div>
             <h3>Join us</h3>
             <h4>Show us what you've got</h4>
-            <div><a href="mailto:hello@theuniprogroup.com">hello@theuniprogroup.com</a></div>
-            <div><a href='https://www.linkedin.com/company/2767849/' target='_blank'>LinkedIn</a></div>
+            <div className='careers'><Link to='careers'> View our current vacancies</Link></div>
           </div>
           <div>
             <h3>Work with us</h3>

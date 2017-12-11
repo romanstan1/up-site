@@ -787,6 +787,48 @@ div.map-block {
   }
 }
 
+div.careers {
+  display: inline-block;
+  box-shadow: 0 15px 35px rgba(50,50,93,.06), 0 5px 15px rgba(0,0,0,.04);
+  margin-top: 10px;
+  a {
+    color: $theblue !important;
+    display: block;
+    padding:12px 55px;
+    text-transform: uppercase;
+    font-size: 80%;
+    font-weight: 700;
+    margin: 0;
+    background: $ghostwhite;
+    &:hover {
+      color: $stark !important;
+      background: $theblue;
+    }
+  }
+}
+// div.careers {
+//   display: inline-block;
+//   // background: $theblue;
+//   // box-shadow: 0 15px 35px rgba(50,50,93,.06), 0 5px 15px rgba(0,0,0,.04);
+//
+//   a {
+//     color: $theblue !important;
+//     display: block;
+//     // padding:12px 55px;
+//     text-transform: uppercase;
+//     font-size: 80%;
+//     font-weight: 700;
+//     margin: 0;
+//     padding: 4px 1px;
+//     border-bottom:2px solid rgba(41, 98, 255, 0);
+//     &:hover {
+//       border-bottom:2px solid $theblue;
+//       // color: $stark;
+//       // background: $theblue;
+//     }
+//   }
+// }
+
 @keyframes rotator {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(270deg); }

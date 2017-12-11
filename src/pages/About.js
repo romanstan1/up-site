@@ -86,7 +86,7 @@ class About extends Component {
     return [
       <div key='heading' className='about'>
         <Nav/>
-        <Background />,
+        <Background />
         <PageTitle heading='Digital Growth Agency' subheading='We deliver digital solutions that help our clients increase their business agility'/>
       </div>,
       <div key='about-content' className='about-content'>
