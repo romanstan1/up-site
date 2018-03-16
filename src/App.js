@@ -16,7 +16,7 @@ export default class App extends Component {
     return (
       <span>
         <Switch>
-          <Route exact path="/" component={Error404} />
+          <Route exact path="/" component={About} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/thinking" component={Thinking} />
