@@ -9,7 +9,7 @@ import moment from 'moment'
 import {connect} from 'react-redux'
 import Butter from 'buttercms';
 
-const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
+const butter = Butter('f8b958c5ab5d1021fbf40aa157a04448432d9895');
 
 const SinglePost = ({singlePost}) =>
   <div className='single-post' >
