@@ -10,7 +10,8 @@ import {loadBlogPosts} from '../store/modules/actions'
 import {connect} from 'react-redux'
 import Butter from 'buttercms';
 
-const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
+// const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
+const butter = Butter('f8b958c5ab5d1021fbf40aa157a04448432d9895');
 
 export const LoadingSpinner = () =>
 <div className="spinner" >
@@ -27,9 +28,9 @@ const SvgIcon = ({link}) => {
 export const getCategoryColor= (category) => {
   let color = ''
   if(category === 'Strategy') color = '#FFAB00'           // yellow
-  else if(category === 'Innovation') color = '#E91E63'    // red
+  else if(category === 'Optimisation') color = '#E91E63'    // red
   else if(category === 'Development') color = '#00BFA5'   // green
-  else throw console.log("ERROR, you need to enter the either Strategy, Innovation or Development as the blog category")
+  else throw console.log("ERROR, you need to enter the either Strategy, Optimisation or Development as the blog category")
   return color
 }
 
@@ -96,7 +97,7 @@ class Thinking extends Component {
         <PageTitle heading='Thinking' subheading='Some thoughts, some ideas'/>
       </div>,
       <div key='filter-buttons' className='filter-button thinking'>
-        {['Strategy','Development','Innovation'].map((filterType, i) =>
+        {['Strategy','Development','Optimisation'].map((filterType, i) =>
           <FilterButton key={i} state={filter} handleClick={this.selectFilter} filterType={filterType}/>
         )}
       </div>,

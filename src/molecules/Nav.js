@@ -15,10 +15,6 @@ const NavLink = ({text, handleSelect, selected, children}) => {
 
 class Nav extends Component {
 
-  componentDidMount() {
-    // console.log("nav", this.props)
-  }
-
   handleSelect = (e) => {
     this.props.dispatch(selectNav(e.currentTarget.dataset.value))
   }
@@ -36,7 +32,7 @@ class Nav extends Component {
 
         <div className='menu'>
           <NavLink selected={selected} handleSelect={this.handleSelect} text='about'/>
-          <NavLink selected={selected} handleSelect={this.handleSelect} text='services'/>
+          {/* <NavLink selected={selected} handleSelect={this.handleSelect} text='services'/> */}
           <NavLink selected={selected} handleSelect={this.handleSelect} text='thinking'/>
           <NavLink selected={selected} handleSelect={this.handleSelect} text='contact'/>
         </div>
