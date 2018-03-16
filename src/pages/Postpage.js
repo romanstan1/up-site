@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 import PageTitle from '../molecules/PageTitle'
 import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'

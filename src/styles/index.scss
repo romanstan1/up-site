@@ -173,62 +173,23 @@ div.other {
 
 footer {
   // margin-top: 20vh;
-  height: 50vh;
-  padding-bottom: 80px;
-  background: $thegrey;
-  display: block;
+  height: 10vh;
+  // padding-bottom: 80px;
+  background: black;
+  // background: red;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
   color: white;
   font-size: 90%;
-  position: relative;
-  text-align: center;
-  // display: none;
-  > div {
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0;
-    padding-top: 20px;
+  padding: 0 10%;
+  div {
+    font-size: 14px;
+    // background: red;
   }
-    div.top-row {
-      // padding: 40px;
-      // background: red;
-      position: relative;
-      display: block;
-      a {
-        display: inline-block;
-        padding: 3px 1px;
-        margin: 0 20px;
-        border-bottom: 1px solid $theblue0;
-        font-size: 80%;
-        font-weight: 300;
-        color:white;
-        &:hover {
-          border-bottom: 1px solid white;
-        }
-      }
-    }
-    div.bottom-row {
-      // background: green;
-      display: block;
-      text-align: center;
-      position: relative;
-      div {
-        display: inline-block;
-        font-size: 70%;
-        color: white;
-        font-size: 300;
-        &:after {
-          content: "|";
-          padding: 0 10px;
-        }
-        &:nth-last-of-type(1) {
-          &:after {
-            content: "";
-            padding: 0px;
-          }
-        }
-      }
-    }
 }
+
+
 div.filter-button {
   display: flex;
   justify-content: center;
@@ -828,6 +789,19 @@ div.careers {
 //     }
 //   }
 // }
+
+div.our-process {
+  padding: 30px 10%;
+}
+div.video {
+  height: 300px;
+  // overflow: hidden;
+  background: url('/assets/placeholderVideo.png') no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
 
 @keyframes rotator {
   0% { transform: rotate(0deg); }

@@ -3,11 +3,12 @@ import {connect} from 'react-redux'
 
 import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'
+import OurProcess from '../molecules/OurProcess'
 import PageTitle from '../molecules/PageTitle'
 import {init,stopAnimation} from '../background/background.js'
 import {selectNav} from '../store/modules/actions'
 import { Carousel } from 'react-responsive-carousel';
-import {BlogPost, LoadingSpinner, getCategoryColor} from './Thinking'
+import {BlogPost, LoadingSpinner} from './Thinking'
 import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
 import {loadBlogPosts} from '../store/modules/actions'
 import ServicesBlock from '../molecules/ServicesBlock'
@@ -103,7 +104,11 @@ class About extends Component {
           </Carousel>
         </div>
         <ServicesBlock text={servicePageText}/>
-        <div className='three-posts'>{!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }</div>
+
+
+        <OurProcess/>
+        {/* <div className='three-posts'>{!!posts? posts.map((post, i) => <BlogPost key={i} post={post} i={i + 1}/>): <LoadingSpinner/> }</div> */}
+
       </div>,
       <Footer key='footer'/>,
     ]
