@@ -9,7 +9,7 @@ export default class Footer extends Component {
           Digital Thinking. Delivered.
         </div>
         <div>
-          LinkedInLogo
+          logo logo logo
         </div>
       </footer>
     ]

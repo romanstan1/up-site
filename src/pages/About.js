@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import Nav from '../molecules/Nav'
 import Footer from '../molecules/Footer'
 import OurProcess from '../molecules/OurProcess'
+import OurServices from '../molecules/OurServices'
 import PageTitle from '../molecules/PageTitle'
 import {init,stopAnimation} from '../background/background.js'
 import {selectNav} from '../store/modules/actions'
@@ -64,7 +65,7 @@ const servicePageText = {
 
 class About extends Component {
   componentDidMount() {
-    init()
+    // init()
     if(this.props.data.selectedNav === ''){
       this.props.dispatch(selectNav('about'))
     }
@@ -103,7 +104,8 @@ class About extends Component {
             {slideContent.map((content,i) => <SlideShow key={i} content={content}/>)}
           </Carousel>
         </div>
-        <ServicesBlock text={servicePageText}/>
+        {/* <ServicesBlock text={servicePageText}/> */}
+        <OurServices/>
 
 
         <OurProcess/>

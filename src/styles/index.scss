@@ -92,20 +92,20 @@ div.nav {
     div {
       a {
         display: inline-block;
-        text-transform: uppercase;
+        text-transform: capitalize;
         margin: 0 -2px 5px 40px;
         padding: 3px 3px;
         // background: $theblue;
-        border-bottom: 2px solid $theblue0;
-        font-size: 76%;
-        font-weight: 600;
+        border-bottom: 1px solid $theblue0;
+        font-size: 85%;
+        font-weight: 300;
         color:$stark;
         &:hover {
           // opacity: 0.8;
-          border-bottom: 2px solid $stark;
+          border-bottom: 1px solid $stark;
         }
         &.active {
-          border-bottom: 2px solid $stark;
+          border-bottom: 1px solid $stark;
         }
       }
 
@@ -173,7 +173,7 @@ div.other {
 
 footer {
   // margin-top: 20vh;
-  height: 10vh;
+  height: 80px;
   // padding-bottom: 80px;
   background: black;
   // background: red;
@@ -181,7 +181,8 @@ footer {
   justify-content:space-between;
   align-items: center;
   color: white;
-  font-size: 90%;
+  font-weight: 300;
+  font-size: 12px;
   padding: 0 10%;
   div {
     font-size: 14px;
@@ -767,40 +768,102 @@ div.careers {
     }
   }
 }
-// div.careers {
-//   display: inline-block;
-//   // background: $theblue;
-//   // box-shadow: 0 15px 35px rgba(50,50,93,.06), 0 5px 15px rgba(0,0,0,.04);
-//
-//   a {
-//     color: $theblue !important;
-//     display: block;
-//     // padding:12px 55px;
-//     text-transform: uppercase;
-//     font-size: 80%;
-//     font-weight: 700;
-//     margin: 0;
-//     padding: 4px 1px;
-//     border-bottom:2px solid rgba(41, 98, 255, 0);
-//     &:hover {
-//       border-bottom:2px solid $theblue;
-//       // color: $stark;
-//       // background: $theblue;
-//     }
-//   }
-// }
 
 div.our-process {
-  padding: 30px 10%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10%;
+  background: $thinkingBackground;
+  h1 {
+    display: block;
+    width: 100%;
+    font-size: 240%;
+    font-weight: 300;
+    margin:0;
+    padding-bottom: 8px;
+  }
+  p {
+    font-weight: 300;
+  }
 }
+
+div.button-case-studies {
+  margin-top: 90px;
+  padding: 10px 0;
+  border: 2px solid $thinkingBackground;
+  width: 260px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+  // text-transform: capitalize;
+  display: inline-block;
+  font-weight: 300;
+}
+
+div.our-services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 10%;
+  background: white;
+  h1 {
+    display: block;
+    width: 100%;
+    font-size: 240%;
+    font-weight: 700;
+    margin:0;
+    padding: 30px 0;
+  }
+  div.single-service {
+    position: relative;
+    padding: 40px 0vw 50px 15vw;
+    border-bottom: 2px solid $thinkingBackground;
+    span {
+      // position: absolute;
+      // left: 10px;
+      // top: 40px;
+      border-radius: 100%;
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      background: $thinkingBackground;
+    }
+    h2 {
+      font-weight: 300;
+      font-size: 200%;
+      // background: grey;
+    }
+    p {
+      font-weight: 300;
+    }
+    ul {
+      display: inline-block;
+      width: 50%;
+      font-weight: 300;
+      // background: grey;
+      padding-left: 22px;
+      li {
+        // background: green;
+      }
+    }
+  }
+}
+
 div.video {
-  height: 300px;
-  // overflow: hidden;
-  background: url('/assets/placeholderVideo.png') no-repeat center center fixed;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
+  height: 40vw;
+  max-height: 300px;
+  max-height: 480px;
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  overflow: hidden;
 }
 
 @keyframes rotator {
