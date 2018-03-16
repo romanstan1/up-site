@@ -13,7 +13,7 @@ import {loadBlogPosts} from '../store/modules/actions'
 import ServicesBlock from '../molecules/ServicesBlock'
 import Butter from 'buttercms';
 
-const butter = Butter('f35cf36d70ea15e756caab13c7a48650fbd9e630');
+const butter = Butter('f8b958c5ab5d1021fbf40aa157a04448432d9895');
 
 const slideContent =  [
   {
